@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const puzzles = await getCollection("puzzle");
+
+  const puzzleSlugs = puzzles.map((puzzle) => ({
+    params: { slug: puzzle.slug },
+    props: { puzzle },
+  }));
+
+  return puzzleSlugs;
+}
+
+export interface Props {
+  puzzle: CollectionEntry<"puzzle">;
+}
+
+const { puzzle } = Astro.props;
+
+const { Content } = await puzzle.render();
+---
+
+<Content />

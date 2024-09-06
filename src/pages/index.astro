@@ -1,8 +1,9 @@
 ---
-import AnswerSubmission from "../components/AnswerSubmission";
-import BaseLayout from "@layouts/BaseLayout.astro";
+import AnswerSubmission from "@/components/AnswerSubmission";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="">
-    <div class="bg-green-100 h-[50vh] w-screen"></div>
+  <div class="h-[50vh] w-screen bg-green-100"></div>
+  <AnswerSubmission answerHash="FFF" client:only />
 </BaseLayout>

@@ -1,0 +1,24 @@
+---
+import Navbar from "@/components/Navbar.astro";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <Header title={title} />
+  <body class="flex min-h-screen flex-col">
+    <Navbar />
+    <main class="flex-1">
+      <article class="prose mx-auto mt-8 max-w-3xl">
+        <slot />
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
