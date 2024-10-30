@@ -5,7 +5,11 @@ import { defineConfig } from "astro/config";
 
 import icon from "astro-icon";
 
+import vercel from "@astrojs/vercel";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), react(), mdx(), icon()],
+  output: "server",
+  adapter: vercel(),
 });
