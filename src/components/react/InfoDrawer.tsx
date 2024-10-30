@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/drawer";
 import { Separator } from "@/components/ui/separator";
 
-import logo from "../../../public/landing/logo-white.png";
+import logo from "@/assets/landing/logo-white.png";
 
 interface InfoDrawerProps {
   children?: React.ReactNode;
