@@ -1,0 +1,33 @@
+---
+const { src, className } = Astro.props;
+---
+
+<style>
+  .image-container {
+    perspective: 1000px;
+  }
+
+  .rotate-image {
+    width: 300px;
+    transition: transform 10s ease;
+    /* animation: hoverUpDown 5s ease-in-out infinite alternate; */
+  }
+
+  .image-container:hover .rotate-image {
+    transform: rotate(360deg);
+    transition: transform 15s ease;
+  }
+
+  @keyframes hoverUpDown {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(10px);
+    }
+  }
+</style>
+
+<div class={`image-container ${className}`}>
+  <img src={src} class="rotate-image pointer-events-none" />
+</div>
