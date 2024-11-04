@@ -1,0 +1,24 @@
+---
+import type { CSSProperties } from "react";
+
+export interface Props {
+  className?: string;
+  style?: CSSProperties;
+  letters: string[];
+}
+
+const { letters, className, style } = Astro.props;
+---
+
+<div class="grid grid-cols-10 border-2 border-black">
+  {
+    letters.map((letter) => (
+      <div
+        class={`grid aspect-square place-items-center bg-gray-200 p-4 ${className}`}
+        style={{ gridArea: "a" }}
+      >
+        {letter}
+      </div>
+    ))
+  }
+</div>
