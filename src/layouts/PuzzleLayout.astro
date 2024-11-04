@@ -14,7 +14,7 @@ type Props = MarkdownLayoutProps<{
 
 const { frontmatter } = Astro.props;
 
-// zod parse frontmatter 
+// zod parse frontmatter
 
 const { title, slug, answer, keep_going } = frontmatter;
 
@@ -23,20 +23,25 @@ const encoded_answer = btoa(answer);
 // const encoded_keep_going = Object.entries(keep_going).map(([key, value]) => {
 //   return { [key]: btoa(value) };
 // });
-const encoded_keep_going: Record<string,string> = {}
-for(const [key, value] of Object.entries(keep_going)){
+const encoded_keep_going: Record<string, string> = {};
+for (const [key, value] of Object.entries(keep_going)) {
   encoded_keep_going[key] = btoa(value);
 }
-
 ---
+
 <link rel="stylesheet" href="styles/checker.css" />
 <script src="lib/checker.js"></script>
 <html lang="en">
   <Header title={title} />
   <body class="flex min-h-screen flex-col">
     <Navbar />
-    <AnswerSubmission encoded_answer={encoded_answer} encoded_keep_going={encoded_keep_going} slug={slug} client:only/>
-    
+    <AnswerSubmission
+      encoded_answer={encoded_answer}
+      encoded_keep_going={encoded_keep_going}
+      slug={slug}
+      client:only
+    />
+
     <main class="flex-1">
       <article class="prose mx-auto mt-8 max-w-3xl">
         <slot />
