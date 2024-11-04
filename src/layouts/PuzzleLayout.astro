@@ -9,11 +9,19 @@ interface Props {
 
 const { title } = Astro.props;
 ---
-
+<link rel="stylesheet" href="styles/checker.css" />
+<script src="lib/checker.js"></script>
 <html lang="en">
   <Header title={title} />
   <body class="flex min-h-screen flex-col">
     <Navbar />
+    <h1>Submit Answers</h1>
+    <input type="text" id="answerInput" placeholder="Enter your answer" />
+    <button onclick="checkAnswer()">Submit</button>
+    <div id="status"></div>
+    <div id="log">
+      <h2>Submission Log</h2>
+    </div>
     <main class="flex-1">
       <article class="prose mx-auto mt-8 max-w-3xl">
         <slot />
