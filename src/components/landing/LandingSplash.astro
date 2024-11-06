@@ -1,7 +1,7 @@
 ---
 import ImageRotateHover from "@/components/ImageRotateHover.astro"
 import CountdownTimer from "@/components/react/CountdownTimer"
-import InfoDrawer from "@/components/react/InfoDrawer"
+import InfoDialog from "@/components/react/InfoDialog"
 import cd from "@/assets/landing/cdspin-bw-slow.gif"
 import game_box from "@/assets/landing/game-box.png"
 ---
@@ -19,6 +19,6 @@ import game_box from "@/assets/landing/game-box.png"
     </div>
   </section>
   <div class="fixed bottom-10 left-1/2 transform -translate-x-1/2 font-mono">
-    <InfoDrawer client:visible />
+    <InfoDialog client:visible />
   </div>
 </h>

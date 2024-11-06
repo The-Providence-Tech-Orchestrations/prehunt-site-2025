@@ -27,7 +27,7 @@ const InfoDialog: React.FC<InfoDialogProps> = ({ children, openButton, className
         <DialogHeader>
           <DialogDescription className="text-center pt-2">Crime boss Papa Finster knows everything that goes on in MITropolis. So when he hears about a run-down bank with lax security and a vault containing a particularly valuable coin, he starts planning the…</DialogDescription>
           <div className="flex items-center justify-center blur-[0.5px]">
-            <img src={logo.src} className="h-40 blur-[0px]"/>
+            <img src={logo.src} className="h-40 sm:h-20 blur-[0px]"/>
           </div>
           <Separator className="my-4"/>
           <DialogTitle className="pt-4">WHAT IS THIS?</DialogTitle>
