@@ -4,12 +4,45 @@ title: "Sidecar's Blueprint"
 layout: "@/layouts/PuzzleLayout.astro"
 ---
 
+import Grid from "@/components/sidecar-blueprint/Grid.astro";
+
 # Sidecar&apos;s Blueprint
 
 _Sidecar gives the crew their directions before every job._
 
-(Find common words of four or more letters.)
+<p class="text-center font-serif uppercase text-xl">(Find common words of four or more letters)</p>
 
-<div class="grid grid-cols-10">
-<> TEST </>
+<div class="not-prose grid gap-4" style={{ fontFamily: "DM Mono, sans-serif", gridTemplateAreas: `"a a a b" "a a a b" "c c c d"` }} >
+    <Grid letters={["P", "E", "L", "S", "T", "A", "T", "E", "G", "I", "O", "F", "I", "E", "L", "E", "R", "N", "T", "W", "R", "C", "P", "L", "B", "M", "I", "C", "W", "O", "T", "E", "O", "D", "E", "T", "H", "U", "H", "R", "S", "W", "A", "O", "S", "A", "U", "F", "O", "R", "Y", "L", "L", "O", "H", "S", "H", "F", "E", "A"]} />
+    <div style={{gridArea: "b" }} class="flex flex-col justify-end">
+        <div class="text-right py-4">
+            <ul class="">
+                <li>ABRASION [3/4]</li>
+                <li>GULP [2/5]</li>
+                <li>SLENDER [1/5]</li>
+                <li>RECURSING [3/5]</li>
+                <li>FULLY [3/5]</li>
+                <li>PROPERTY [1/5]</li>
+            </ul>
+        </div>
+        <svg class="rotate-[135deg] mx-auto" fill="#000000" width="50px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.293,20.707a1,1,0,0,1,0-1.414L17.586,5H12a1,1,0,0,1,0-2h8a1,1,0,0,1,1,1v8a1,1,0,0,1-2,0V6.414L4.707,20.707a1,1,0,0,1-1.414,0Z"/></svg>
+    </div>
+    <div style={{gridArea: "c"}}>
+        <div class="flex flex-col">
+            <div class="flex items-center">
+            <div class="border-black border-2 flex gap-4 px-2">
+                <span>PASTA [6/6]</span>
+                <span>GAMES [1/5]</span>
+                <span>SWAP [1/4]</span>
+                <span>QUEST [4/4]</span>
+            </div>
+            <div class="flex-1" />
+            <svg class="rotate-45" fill="#000000" width="50px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.293,20.707a1,1,0,0,1,0-1.414L17.586,5H12a1,1,0,0,1,0-2h8a1,1,0,0,1,1,1v8a1,1,0,0,1-2,0V6.414L4.707,20.707a1,1,0,0,1-1.414,0Z"/></svg>
+            <div class="flex-1" />
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col items-center" style={{gridArea: "d"}}>
+        <p>(__) __ __ __ __</p>
+    </div>
 </div>
