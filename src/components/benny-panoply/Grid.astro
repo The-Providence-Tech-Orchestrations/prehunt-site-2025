@@ -1,0 +1,35 @@
+---
+export interface Props {
+  className?: string;
+  numberOfCells: number;
+}
+
+const { numberOfCells, className } = Astro.props;
+---
+
+<div
+  class="grid"
+  style={{
+    gridTemplateAreas: `". . . A . ." ". b b b b ." ". b b b b ." "B b b b b ." ". b b b b C"`,
+  }}
+>
+  <div style={{ gridArea: "A" }}>3</div>
+  <div style={{ gridArea: "B" }}>3</div>
+  <div style={{ gridArea: "C" }}>4</div>
+  <!-- <div
+    class="grid h-min grid-cols-4 border-2 border-black"
+    style={{ gridArea: "b", fontFamily: "DM Mono, sans-serif" }}
+  >
+    {
+      new Array(numberOfCells)
+        .fill("")
+        .map((letter) => (
+          <div
+            class={`grid aspect-square place-items-center p-4 ${className} border-[0.5px] border-black`}
+          >
+            {letter}
+          </div>
+        ))
+    }
+  </div> -->
+</div>
