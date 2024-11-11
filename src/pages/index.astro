@@ -1,9 +1,10 @@
 ---
-import AnswerSubmission from "@/components/AnswerSubmission";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import LandingSplash from "@/components/landing/LandingSplash.astro";
+import '@/styles/globals.css'
 ---
 
 <BaseLayout title="">
-  <div class="h-[50vh] w-screen bg-green-100"></div>
-  <AnswerSubmission answerHash="FFF" client:only />
+  <LandingSplash />
+  <!-- <div class="h-[50vh] w-screen bg-black"></div> -->
 </BaseLayout>
