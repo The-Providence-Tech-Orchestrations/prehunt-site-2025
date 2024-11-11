@@ -1,11 +1,11 @@
+import { checkAnswer } from "@/lib/checker";
 import { useLocalStorage } from "@uidotdev/usehooks";
+import { useEffect } from "react";
 
 interface AnswerSubmissionProps {
-  answerHash: string;
-  fuzzyMatches?: Set<string>;
-  onSuccess?: () => void;
-  onFuzzyMatch?: () => void;
-  onFailure?: () => void;
+  encoded_answer: string;
+  encoded_keep_going: Record<string,string>;
+  slug: string;
 }
 
 const sha256 = async (answer: string) => {
@@ -30,44 +30,36 @@ const cleanInputAnswer = (answer: string) => {
 };
 
 export default function AnswerSubmission({
-  answerHash,
-  fuzzyMatches,
-  onSuccess,
-  onFuzzyMatch,
-  onFailure,
+  encoded_answer,
+  encoded_keep_going,
+  slug
 }: AnswerSubmissionProps) {
-  //! useLocalStorage is a client-side only hook, and will throw an error on the server
-  //! To get around this make sure to load the component using the `client:only` astro directive
-  const [answers, setAnswers] = useLocalStorage("submittedAnswers", new Set<string>());
 
-  // TODO: Add logic to handle incorrect answers and fuzzy matches,
-  // could be done via toasts (see https://react-hot-toast.com/)
-  // Could also use react-hook-form or something for form validation
+  const [history, setHistory] = useLocalStorage<[string, string][]>(`${slug}_history`, []);
+
   const onSubmitHandler: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-
+  
     const input = cleanInputAnswer(((e.target as any)[0] as HTMLInputElement).value);
 
-    if (input == "") {
-      return;
-    }
-
-    const inputHash = await sha256(input);
-
-    if (answerHash == inputHash) {
-      setAnswers(new Set([...answers, input]));
-      onSuccess && onSuccess();
-    } else if (fuzzyMatches && fuzzyMatches.has(input)) {
-      onFuzzyMatch && onFuzzyMatch();
-    } else {
-      onFailure && onFailure();
-    }
+    checkAnswer(input, encoded_answer, encoded_keep_going, slug, history, setHistory);
   };
 
   return (
     <form onSubmit={onSubmitHandler}>
-      <input type="text" />
-      <button type="submit">Submit</button>
+      <h1>Submit Answers for {slug}</h1>
+      <input type="text" id="answerInput" placeholder="Enter your answer" />
+      <button type="submit">submit</button>
+      <div id="status"></div>
+      <div id="log">
+        <h2>Submission Log</h2>
+        {history.map((submission, i) => (
+          <div key={`submission_${i}`}>
+            <p>Submission: {submission[0]}</p>
+            <p>Result: {submission[1]}</p>
+          </div>
+        ))}
+      </div>
     </form>
   );
 }

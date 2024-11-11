@@ -11,18 +11,18 @@ let submissionTimes = [];
 let ratelimited = false;
 let enabled = true
 
-function checkAnswer(encodedAnswers, keepGoingPhrases, slug) {
+export function checkAnswer(userAnswer, encodedAnswer, keepGoingPhrases, slug, history, setHistory) {
     const answerInput = document.getElementById('answerInput');
-    const userAnswer = answerInput.value.trim();
+    // const userAnswer = answerInput.value.trim();
     const statusDiv = document.getElementById('status');
     let responseMessage = '';
 
-
     if(userAnswer == '' || !enabled) {
-	return
+      return
     }
     
     // Check for "keep going" phrases
+
     for (const [encodedPhrase, encodedMessage] of Object.entries(keepGoingPhrases)) {
         if (atob(encodedPhrase) === userAnswer) {
             responseMessage = atob(encodedMessage);
@@ -30,13 +30,19 @@ function checkAnswer(encodedAnswers, keepGoingPhrases, slug) {
     }
 
     // Check for correct answer
-    uppercaseAnswer = userAnswer.toUpperCase()
-    if (encodedAnswers.some(encodedAnswer => atob(encodedAnswer) === uppercaseAnswer)) {
+    const uppercaseAnswer = userAnswer.toUpperCase()
+    if ( atob(encodedAnswer) === uppercaseAnswer) {
         responseMessage = "Correct!";
         localStorage.setItem(`${slug}_solution`, uppercaseAnswer)
     } else if(!responseMessage) {
         responseMessage = "Nope!";
-    }
+    } 
+    history = [
+      [uppercaseAnswer, responseMessage],
+      ...history,
+    ]
+    // console.log("HISTORY:", history)
+    setHistory(history)
 
     // Check rate limit
     const now = Date.now();
@@ -63,7 +69,7 @@ function checkAnswer(encodedAnswers, keepGoingPhrases, slug) {
         }, 1000);
     }
 
-    addToLog(userAnswer, responseMessage);
+    // addToLog(userAnswer, responseMessage);
     answerInput.value = '';
 }
 
@@ -75,10 +81,7 @@ function addToLog(answer, response) {
     logDiv.insertBefore(logEntry, null);
 }
 
+
+
 // Add event listener for Enter key
-document.getElementById('answerInput').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        event.preventDefault();
-        checkAnswer();
-    }
-});
+

@@ -2,12 +2,32 @@
 import Navbar from "@/components/Navbar.astro";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
+import type { MarkdownLayoutProps } from "astro";
+import AnswerSubmission from "@/components/AnswerSubmission";
 
-interface Props {
+type Props = MarkdownLayoutProps<{
   title: string;
+  slug: string;
+  answer: string;
+  keep_going: Record<string, string>;
+}>;
+
+const { frontmatter } = Astro.props;
+
+// zod parse frontmatter 
+
+const { title, slug, answer, keep_going } = frontmatter;
+
+// encode answers and keep goings
+const encoded_answer = btoa(answer);
+// const encoded_keep_going = Object.entries(keep_going).map(([key, value]) => {
+//   return { [key]: btoa(value) };
+// });
+const encoded_keep_going: Record<string,string> = {}
+for(const [key, value] of Object.entries(keep_going)){
+  encoded_keep_going[key] = btoa(value);
 }
 
-const { title } = Astro.props;
 ---
 <link rel="stylesheet" href="styles/checker.css" />
 <script src="lib/checker.js"></script>
@@ -15,13 +35,8 @@ const { title } = Astro.props;
   <Header title={title} />
   <body class="flex min-h-screen flex-col">
     <Navbar />
-    <h1>Submit Answers</h1>
-    <input type="text" id="answerInput" placeholder="Enter your answer" />
-    <button onclick="checkAnswer()">Submit</button>
-    <div id="status"></div>
-    <div id="log">
-      <h2>Submission Log</h2>
-    </div>
+    <AnswerSubmission encoded_answer={encoded_answer} encoded_keep_going={encoded_keep_going} slug={slug} client:only/>
+    
     <main class="flex-1">
       <article class="prose mx-auto mt-8 max-w-3xl">
         <slot />
