@@ -85,5 +85,3 @@ function addToLog(answer, response) {
   logEntry.textContent = `Answer: "${answer}" - Response: ${response}`;
   logDiv.insertBefore(logEntry, null);
 }
-
-// Add event listener for Enter key

@@ -9,7 +9,7 @@ const puzzleCollection = defineCollection({
     order: z.number(),
     answer: z.string(),
     keep_going: z.record(z.string(), z.string()),
-    difficulty: z.enum(["expert", "casual"])
+    difficulty: z.enum(["expert", "casual"]),
   }),
 });
 
