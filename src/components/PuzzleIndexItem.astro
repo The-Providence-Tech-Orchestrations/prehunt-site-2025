@@ -1,9 +1,0 @@
----
-const { puz } = Astro.props;
-const solution = localStorage.getItem(`${puz.slug}_solution`)
----
-<div id="puzindex-{name}">
-  <a href="{puz.slug}"><b>{puz.title}</b></a>
-  { solution && <p><br>{solution}</p> }
-</div>
-  
