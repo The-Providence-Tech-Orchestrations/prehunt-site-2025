@@ -40,11 +40,13 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate, endText, cl
     return () => clearInterval(timer);
   }, [targetDate]);
 
+  const formatTime = (time: number) => String(time).padStart(2, '0');
+
   return (
     <div className={className}>
       {timeLeft ? (
-        <p>
-          {timeLeft.days} : {timeLeft.hours} : {timeLeft.minutes} : {timeLeft.seconds}
+        <p className='font-mono'>
+          {formatTime(timeLeft.days)}:{formatTime(timeLeft.hours)}:{formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)}
         </p>
       ) : (
         <button>LET'S HEIST!!</button>

@@ -7,7 +7,6 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), react(), mdx(), icon(), sitemap()],
-  site: "https://the-providence-tech-orchestrations.github.io",
-  base: "",
+  integrations: [tailwind(), react(), mdx(), icon()],
+  site: 'https://www.mitmysteryheist.com',
 });
