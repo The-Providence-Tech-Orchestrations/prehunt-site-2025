@@ -1,14 +1,23 @@
 ---
+const { dark } = Astro.props;
 
+import logo_white from "@/assets/landing/logo-white.png";
+import logo_black from "@/assets/landing/logo-black.png";
 ---
 
-<nav class="sticky top-0 flex items-baseline p-2 px-4">
-  <a href="/" class="font-mono text-lg font-bold">MIT Mystery Heist</a>
+<nav class={`sticky top-0 flex items-center p-2 px-4 ${dark ? "text-white" : "text-black"}`}>
+  <!-- <a href="/" class="font-mono text-lg font-bold">MIT Mystery Heist</a> -->
+  <a href="/">
+    <img
+      src={dark ? logo_white.src : logo_black.src}
+      class=`h-[4.5rem] transition duration-300 ease-in-out hover:cursor-pointer
+      ${dark ? "hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.6)]" : "hover:drop-shadow-[0_0_10px_rgba(0,0,0,0.3)]"}`
+    />
+  </a>
+
   <div class="flex-1"></div>
-  <div class="flex gap-10 pr-10">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/puzzles">Puzzles</a>
+  <div class="flex items-center gap-10 pr-0 sm:pr-10">
+    <a href="/puzzles" class="text-center font-bold text-xl">Puzzles</a>
   </div>
 </nav>
 

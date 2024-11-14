@@ -1,5 +1,5 @@
 // src/components/CountdownTimer.tsx
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 interface TimeLeft {
   days: number;
@@ -47,7 +47,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate, endText, cl
           {timeLeft.days} : {timeLeft.hours} : {timeLeft.minutes} : {timeLeft.seconds}
         </p>
       ) : (
-        <p>{endText}</p>
+        <button>LET'S HEIST!!</button>
       )}
     </div>
   );

@@ -11,7 +11,7 @@ const puzzles = await getCollection("puzzle");
   <ModePicker client:only="react" />
   <ul>
     {
-      puzzles.map((puzzle) => {
+      puzzles.map((puzzle: any) => {
         return (
           <li>
             <PuzzleIndexItem client:only="react" puzzle={puzzle} />
