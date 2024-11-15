@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import PuzzleIndexItem from "@/components/PuzzleIndexItem";
-import ModePicker from "@/components/ModePicker";
+import PuzzleIndexItem from "@/components/react/PuzzleIndexItem";
+import ModePicker from "@/components/react/ModePicker";
 import { getCollection } from "astro:content";
 
 const casual_puzzles = await getCollection("packet1_casual");

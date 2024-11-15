@@ -5,15 +5,14 @@ const puzzleCollection = defineCollection({
   // Frontmatter Validation
   schema: z.object({
     title: z.string(),
-    order: z.number().optional(),
+    round: z.number(),
+    order: z.number(),
     answer: z.string(),
-    keep_going: z.record(z.string(), z.string())
+    keep_going: z.record(z.string(), z.string()),
+    difficulty: z.enum(["expert", "casual"])
   }),
 });
 
 export const collections = {
-  packet1_casual: puzzleCollection,
-  packet2_casual: puzzleCollection,
-  packet1_expert: puzzleCollection,
-  packet2_expert: puzzleCollection,
+  puzzle: puzzleCollection,
 };
