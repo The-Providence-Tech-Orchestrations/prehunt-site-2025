@@ -21,7 +21,7 @@ const InfoDialog: React.FC<InfoDialogProps> = ({ children, openButton, className
   return (
     <Dialog>
       <DialogTrigger className="rounded-full border-2 border-zinc-400 transition-all blur-[1px] hover:blur-none hover:border-4">
-        <div className="flex text-6xl text-zinc-200 px-4 py-1  blur-[1px]">?</div>
+        <div className="flex text-6xl text-zinc-200 px-4 py-1  blur-[1px] text-center">?</div>
       </DialogTrigger>
       <DialogContent className="dark">
         <DialogHeader>
