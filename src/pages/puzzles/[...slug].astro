@@ -3,7 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const puzzles = await getCollection("packet2");
+  const puzzles = await getCollection("puzzle");
 
   const puzzleSlugs = puzzles.map((puzzle: any) => ({
     params: { slug: puzzle.slug },
