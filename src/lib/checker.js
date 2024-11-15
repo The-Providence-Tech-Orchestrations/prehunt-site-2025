@@ -30,6 +30,7 @@ export function checkAnswer(userAnswer, encodedAnswer, keepGoingPhrases, slug, h
     }
 
     // Check for correct answer
+    userAnswer.replace(/[^a-zA-Z]/g, '')
     const uppercaseAnswer = userAnswer.toUpperCase()
     if ( atob(encodedAnswer) === uppercaseAnswer) {
         responseMessage = "Correct!";

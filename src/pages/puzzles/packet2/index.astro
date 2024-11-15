@@ -1,0 +1,28 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PuzzleIndexItem from "@/components/PuzzleIndexItem";
+import ModePicker from "@/components/ModePicker";
+import { getCollection } from "astro:content";
+
+const puzzles = await getCollection("packet2");
+---
+import PuzzleListItem from "@/components/ui/puzzle-list-item/PuzzleListItem";
+
+<BaseLayout title="">
+  <ModePicker client:only="react" />
+  <ul>
+    {
+      puzzles.map((puzzle: any) => {
+        return (
+          <li>
+            <PuzzleIndexItem client:only="react" puzzle={puzzle} />
+          </li>
+        );
+      })
+    }
+  </ul>
+</BaseLayout>
+
+
+
+

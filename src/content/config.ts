@@ -5,11 +5,15 @@ const puzzleCollection = defineCollection({
   // Frontmatter Validation
   schema: z.object({
     title: z.string(),
+    order: z.number().optional(),
     answer: z.string(),
     keep_going: z.record(z.string(), z.string())
   }),
 });
 
 export const collections = {
-  puzzle: puzzleCollection,
+  packet1_casual: puzzleCollection,
+  packet2_casual: puzzleCollection,
+  packet1_expert: puzzleCollection,
+  packet2_expert: puzzleCollection,
 };
