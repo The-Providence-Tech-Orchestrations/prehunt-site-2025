@@ -11,7 +11,7 @@ function PuzzleIndexItem({ puzzle }: PuzzleIndexItemProps) {
 
   return (
     <div>
-      <a href={puzzle.slug} className="font-bold">
+      <a href={`puzzles/${puzzle.slug}`} className="font-bold">
         {puzzle.data.title}
       </a>
       {solution && <p>{solution}</p>}
