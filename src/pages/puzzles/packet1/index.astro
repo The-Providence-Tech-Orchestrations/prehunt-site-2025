@@ -1,15 +1,13 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import PuzzleIndexItem from "@/components/react/PuzzleIndexItem";
 import ModePicker from "@/components/react/ModePicker";
+import PuzzleIndex from "@/components/react/PuzzleIndex";
 import { getCollection } from "astro:content";
+import { PuzzlePacket } from "@/lib/types";
 
-const casual_puzzles = await getCollection("packet1_casual");
-const expert_puzzles = await getCollection("packet1_expert");
-import PuzzleListItem from "@/components/ui/puzzle-list-item/PuzzleListItem";
+const puzzles = await getCollection("puzzle");
 ---
 
 <BaseLayout title="">
-  <ModePicker client:only="react" />
-  <PuzzleIndex client:only="react" />
+  <PuzzleIndex client:only="react" puzzles={puzzles} packet={PuzzlePacket.One} />
 </BaseLayout>
