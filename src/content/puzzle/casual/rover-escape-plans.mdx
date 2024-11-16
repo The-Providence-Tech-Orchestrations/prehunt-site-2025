@@ -1,0 +1,107 @@
+---
+slug: casual/rover-escape-plans
+title: Rover's Escape Plans
+layout: "@/layouts/PuzzleLayout.astro"
+---
+import Grid from "@/components/rover-escape-plans/Grid.astro"
+
+# Rover's Escape Plans
+
+<div class="grid gap-10" style={{fontFamily: "DM Mono, sans-serif"}}>
+_Rover's done a **bit** of work to logic out getaway routes all across town, and he's ready to take the crew in straight lines from start to finish._
+
+    <section class="flex gap-4 items-center flex-wrap sm:flex-nowrap">
+    <div class="basis-full sm:basis-1/2">
+            <h2 class="font-bold text-xl">Scenario 1</h2>
+            <p> Draw a single closed loop passing through the centers of cells that goes through all white and black cells. When the loop passes through a white cell, it must make a right-angled turn in at least one of the cells next to the white circle. When the loop passes through a black cell, it must make a right-angled turn, then go straight through the next cells on both sides. </p>
+        </div>
+        <Grid board={[
+        ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", "A"], ["", ""], ["", ""], ["", ""],
+        ["", "Y"], ["_", ""], ["_", ""], ["Y", ""], ["B", ""], ["_", ""], ["_", ""], ["_", ""],["_", ""], ["", "E"],
+        ["", ""], ["W", ""], ["_", ""], ["W", ""], ["_", ""], ["_", ""], ["_", ""], ["W", ""],["Y", ""], ["", ""],
+        ["", ""], ["_", ""], ["_", ""], ["_", ""], ["B", ""], ["_", ""], ["_", ""], ["Y", ""],["W", ""], ["", ""],
+        ["", ""], ["_", ""], ["_", ""], ["W", ""], ["_", ""], ["_", ""], ["_", ""], ["W", ""],["_", ""], ["", ""],
+        ["", ""], ["W", ""], ["_", ""], ["_", ""], ["B", ""], ["_", ""], ["Y", ""], ["_", ""],["_", ""], ["", ""],
+        ["", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["Y", ""], ["B", ""],["_", ""], ["", ""],
+        ["", ""], ["W", ""], ["_", ""], ["W", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""],["_", ""], ["", ""],
+        ["", ""], ["_", ""], ["_", ""], ["_", ""], ["W", ""], ["_", ""], ["_", ""], ["_", ""],["_", ""], ["", ""],
+        ["", ""], ["", "L"], ["", ""], ["", ""], ["", ""], ["", ""], ["", "L"], ["", ""], ["", ""], ["", ""]
+        ]} />
+    </section>
+
+    <section class="flex flex-row-reverse gap-4 items-center flex-wrap sm:flex-nowrap">
+    <div class="basis-full sm:basis-1/2">
+            <h2 class="font-bold text-xl">Scenario 2</h2>
+            <p>Shade all cells white or black. For each numbered cell, the number indicates the total number of white cells visible from it horizontally and vertically, including itself. Numbers cannot see through a black cell. The white cells must form a single connected group. All black cells must be connected by other black cells to an edge of the grid.  Diagonal adjacency does not count as connection.</p>
+        </div>
+        <Grid board={[
+        ["", ""], ["", ""], ["", ""], ["", "D"], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""],
+        ["", ""], ["_", "2"], ["_", ""], ["_", ""], ["_", "5"], ["_", ""], ["_", ""], ["_", "2"],["_", ""], ["", ""],
+        ["", ""], ["Y", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""],["_", ""], ["", ""],
+        ["", "G"], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", "3"], ["Y", ""], ["_", ""],["_", ""], ["", ""],
+        ["", ""], ["_", "2"], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""],["_", ""], ["", ""],
+        ["", ""], ["_", ""], ["Y", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""],["_", "5"], ["", ""],
+        ["", "R"], ["_", ""], ["_", ""], ["_", ""], ["_", "2"], ["_", ""], ["_", ""], ["Y", ""],["_", ""], ["", "I"],
+        ["", ""], ["Y", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""],["_", ""], ["", ""],
+        ["", ""], ["_", ""], ["_", "2"], ["_", ""], ["_", ""], ["_", "6"], ["_", ""], ["_", ""],["_", "2"], ["", ""],
+        ["", ""], ["", ""], ["", ""], ["", "B"], ["", ""], ["", ""], ["", "E"], ["", ""], ["", ""], ["", ""]
+        ]} />
+    </section>
+
+    <section class="flex gap-4 items-center flex-wrap sm:flex-nowrap">
+    <div class="basis-full sm:basis-1/2">
+            <h2 class="font-bold text-xl">Scenario 3</h2>
+            <p>Shade all cells white or black. There must be a single connected group of white cells and a single connected group of black cells. There must be no 2-by-2 squares of cells with the same color.  Diagonal adjacency does not count as connection.</p>
+        </div>
+        <Grid board={[
+        ["", ""], ["", ""], ["", ""], ["", "H"], ["", ""], ["", ""], ["", ""], ["", "Y"], ["", ""], ["", ""],
+        ["", ""], ["W", ""], ["_", ""], ["Y", ""], ["_", ""], ["_", ""], ["_", ""], ["Y", ""],["W", ""], ["", ""],
+        ["", ""], ["_", ""], ["_", ""], ["_", ""], ["W", ""], ["W", ""], ["B", ""], ["_", ""],["_", ""], ["", ""],
+        ["", "G"], ["_", ""], ["W", ""], ["_", ""], ["B", ""], ["_", ""], ["_", ""], ["Y", ""],["_", ""], ["", ""],
+        ["", "I"], ["_", ""], ["_", ""], ["_", ""], ["Y", ""], ["_", ""], ["Y", ""], ["_", ""],["_", ""], ["", "H"],
+        ["", ""], ["_", ""], ["_", ""], ["W", ""], ["_", ""], ["_", ""], ["W", ""], ["_", ""],["_", ""], ["", ""],
+        ["", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["W", ""], ["_", ""], ["_", ""],["_", ""], ["", ""],
+        ["", ""], ["_", ""], ["_", ""], ["_", ""], ["W", ""], ["_", ""], ["_", ""], ["_", ""],["_", ""], ["", ""],
+        ["", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""],["_", ""], ["", ""],
+        ["", ""], ["", ""], ["", ""], ["", "W"], ["", ""], ["", ""], ["", ""], ["", "A"], ["", ""], ["", ""]
+        ]} />
+    </section>
+
+    <section class="flex flex-row-reverse gap-4 items-center flex-wrap sm:flex-nowrap">
+    <div class="basis-full sm:basis-1/2">
+            <h2 class="font-bold text-xl">Scenario 4</h2>
+            <p>Shade all cells white or black. Numbers indicate the number of cells in the area containing this cell. All black regions are rectangles, and all white regions are not. A region may contain multiple numbered cells.</p>
+        </div>
+        <Grid board={[
+        ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", "A"], ["", ""], ["", "E"], ["", ""],
+        ["", "R"], ["Y", ""], ["_", "4"], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""],["_", ""], ["", "T"],
+        ["", ""], ["_", ""], ["_", "4"], ["_", ""], ["_", "4"], ["_", ""], ["_", "4"], ["_", "4"],["_", "6"], ["", ""],
+        ["", "U"], ["_", ""], ["_", "9"], ["_", ""], ["Y", ""], ["_", "11"], ["_", ""], ["_", ""],["_", ""], ["", "T"],
+        ["", ""], ["_", "9"], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""],["_", ""], ["", ""],
+        ["", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""],["_", "3"], ["", ""],
+        ["", "A"], ["_", ""], ["_", ""], ["_", ""], ["_", "1"], ["_", ""], ["_", ""], ["_", "2"],["_", ""], ["", ""],
+        ["", ""], ["_", "8"], ["_", "2"], ["_", "8"], ["_", ""], ["_", "1"], ["_", ""], ["_", "7"],["_", ""], ["", ""],
+        ["", "R"], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", "1"],["_", ""], ["", ""],
+        ["", ""], ["", ""], ["", ""], ["", "I"], ["", ""], ["", ""], ["", "N"], ["", "L"], ["", ""], ["", ""]
+        ]} />
+    </section>
+
+    <section class="flex gap-4 items-center flex-wrap sm:flex-nowrap">
+    <div class="basis-full sm:basis-1/2">
+            <h2 class="font-bold text-xl">Scenario 5</h2>
+            <p>Draw a single closed loop on cell borders so that each number indicates the number of its cells' borders that are part of the loop.</p>
+        </div>
+        <Grid board={[
+        ["", ""], ["", ""], ["", "V"], ["", ""], ["", ""], ["", "R"], ["", ""], ["", ""], ["", "O"], ["", ""],
+        ["", ""], ["_", ""], ["_", ""], ["_", "3"], ["_", ""], ["_", "3"], ["_", ""], ["Y", ""],["_", "3"], ["", ""],
+        ["", "D"], ["_", "3"], ["_", ""], ["_", "0"], ["_", ""], ["_", ""], ["_", ""], ["_", "2"],["_", ""], ["", ""],
+        ["", "S"], ["_", ""], ["_", ""], ["_", "3"], ["_", ""], ["_", ""], ["_", "2"], ["_", "3"],["_", ""], ["", "E"],
+        ["", ""], ["_", ""], ["_", "2"], ["_", ""], ["W", ""], ["_", "2"], ["Y", ""], ["_", "1"],["_", ""], ["", ""],
+        ["", ""], ["_", ""], ["_", "1"], ["_", ""], ["_", "2"], ["B", ""], ["_", ""], ["_", "1"],["_", ""], ["", ""],
+        ["", ""], ["_", ""], ["_", "2"], ["_", "2"], ["_", ""], ["_", ""], ["_", "0"], ["_", ""],["_", ""], ["", ""],
+        ["", "E"], ["_", ""], ["_", "2"], ["_", ""], ["Y", ""], ["_", ""], ["_", "2"], ["_", ""],["_", "1"], ["", "R"],
+        ["", "A"], ["_", "3"], ["Y", ""], ["_", ""], ["_", "2"], ["_", ""], ["_", "0"], ["_", ""],["_", ""], ["", ""],
+        ["", ""], ["", ""], ["", "I"], ["", "C"], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""], ["", ""]
+        ]} />
+    </section>
+</div>
