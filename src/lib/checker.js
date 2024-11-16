@@ -57,7 +57,7 @@ export function checkAnswer(
   if (submissionTimes.length > rateLimit.submissions) {
     var wait = Math.ceil(rateLimit.timeout - (now - submissionTimes[0]) / 1000);
     if (!ratelimited) {
-      statusDiv.textContent = `This answer checker runs locally in your browser and can be circumvented in any number of ways, but we think you'll have more fun if you don't spam guesses. `;
+      // statusDiv.textContent = `This answer checker runs locally in your browser and can be circumvented in any number of ways, but we think you'll have more fun if you don't spam guesses. `;
       ratelimited = true;
     }
     statusDiv.textContent += `Try again in ${wait} seconds.`;

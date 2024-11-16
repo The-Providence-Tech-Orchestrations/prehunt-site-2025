@@ -19,7 +19,8 @@ const { frontmatter } = Astro.props;
 const { title, slug, answer, keep_going } = frontmatter;
 
 // encode answers and keep goings
-const encoded_answer = btoa(answer);
+const answer1 = answer.replace(/[^a-zA-Z]/g, "");
+const encoded_answer = btoa(answer1);
 // const encoded_keep_going = Object.entries(keep_going).map(([key, value]) => {
 //   return { [key]: btoa(value) };
 // });
