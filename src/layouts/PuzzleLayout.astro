@@ -30,8 +30,6 @@ for (const [key, value] of Object.entries(keep_going)) {
 }
 ---
 
-<link rel="stylesheet" href="styles/checker.css" />
-<script src="lib/checker.js"></script>
 <html lang="en">
   <Header title={title} />
   <body class="flex min-h-screen flex-col gap-2">
@@ -41,13 +39,15 @@ for (const [key, value] of Object.entries(keep_going)) {
       encoded_answer={encoded_answer}
       encoded_keep_going={encoded_keep_going}
       slug={slug}
-      client:only
+      client:only="react"
     />
     <hr class="-gray-300 my-4 border border-t-2" />
 
     <main class="flex-1">
       <article class="prose mx-auto mb-8 mt-8 max-w-3xl">
-        <slot />
+        <div class="px-4">
+          <slot />
+        </div>
       </article>
     </main>
     <Footer />

@@ -15,11 +15,13 @@ import GridPicture from "@/assets/benny-panoply/grid.png";
 
 # Benny&#39;s Panoply
 
+<div style={{fontFamily: "DM Mono, sans-serif"}}>
 _Benny Candy likes everything—food, money, and, of course, his partner, Nadine. When asked his favorite letter of the alphabet, he replied, “All of them.” But there's one thing he values more than anything else._
+</div>
 
 <Puzzle />
 
-<div class="flex gap-10">
+<div class="flex flex-col sm:flex-row gap-10 items-center justify-center">
   <div
     class="flex list-disc gap-2 marker:text-black"
     style={{ fontFamily: "Roboto Mono, monospace" }}
@@ -62,5 +64,5 @@ _Benny Candy likes everything—food, money, and, of course, his partner, Nadine
       <li>ZOOMS</li>
     </ul>
   </div>
- <img src={GridPicture.src} />
+ <img className="max-w-96 max-h-96" src={GridPicture.src} />
 </div>

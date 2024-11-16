@@ -1,5 +1,4 @@
 import { useLocalStorage } from "@uidotdev/usehooks";
-import { useEffect } from "react";
 
 import { checkAnswer } from "@/lib/checker";
 import { cleanInputAnswer } from "@/lib/utils";
@@ -43,29 +42,31 @@ export default function AnswerSubmission({
 
   return (
     <form onSubmit={onSubmitHandler} className="mx-auto">
-      <div className="flex gap-4 mt-4">
+      <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
         <input
           type="text"
           id="answerInput"
           placeholder="GUESS ANSWER"
-          className="border-2 rounded blur-[1px] focus:blur-[0.5px] transition-all duration-300 text-transform: uppercase"
+          className="w-full border-2 rounded blur-[1px] focus:blur-[0.5px] transition-all duration-300 text-transform: uppercase"
           style={{ textTransform: "uppercase" }}
           disabled={solved}
         />
 
-        <button
-          type="submit"
-          className={`rounded-xl  px-4 py-2 text-white font-semibold  transition duration-100 ${!solved ? "bg-gray-500 hover:bg-gray-600" : "bg-[#40614c69]"}`}
-          disabled={solved}
-        >
-          Submit
-        </button>
-        <a
-          className="rounded-xl bg-gray-500 px-4 py-2 text-white font-semibold hover:bg-gray-600 transition"
-          href={`/solutions/${slug}`}
-        >
-          View Solution
-        </a>
+        <div className="flex gap-4">
+          <button
+            type="submit"
+            className={`rounded-[.3rem] px-4 py-2 text-white font-semibold  transition duration-100 ${!solved ? "bg-gray-500 hover:bg-gray-600" : "bg-[#40614c69]"}`}
+            disabled={solved}
+          >
+            Submit
+          </button>
+          <a
+            className="rounded-[.3rem] bg-gray-500 px-4 py-2 text-white font-semibold hover:bg-gray-600 transition"
+            href={`/solutions/${slug}`}
+          >
+            Solution
+          </a>
+        </div>
       </div>
       <div id="status" className="text-[red] mt-4"></div>
       {history.length != 0 && (

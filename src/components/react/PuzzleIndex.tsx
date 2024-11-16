@@ -17,6 +17,7 @@ function PuzzleIndex({ puzzles, packet }: PuzzleIndexProps) {
   const puzzlesRendered = packet
     ? filterPuzzleCollection(puzzles, difficulty, packet)
     : filterPuzzleCollection(puzzles, difficulty);
+  puzzlesRendered.sort((a, b) => a.data.order - b.data.order);
 
   return (
     <div className="flex justify-center items-center">

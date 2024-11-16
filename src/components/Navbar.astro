@@ -5,7 +5,9 @@ import logo_white from "@/assets/landing/logo-white.png";
 import logo_black from "@/assets/landing/logo-black.png";
 ---
 
-<nav class={`sticky top-0 flex items-center p-2 px-4 ${dark ? "text-white" : "text-black"}`}>
+<nav
+  class={`sticky top-0 flex items-center p-2 px-4  ${dark ? "text-white" : "text-black bg-white/35"}`}
+>
   <!-- <a href="/" class="font-mono text-lg font-bold">MIT Mystery Heist</a> -->
   <a href="/">
     <img
@@ -17,7 +19,7 @@ import logo_black from "@/assets/landing/logo-black.png";
 
   <div class="flex-1"></div>
   <div class="flex items-center gap-10 pr-0 sm:pr-10">
-    <a href="/puzzles" class="text-center font-bold text-xl">Puzzles</a>
+    <a href="/puzzles" class="text-center text-xl font-bold">Puzzles</a>
   </div>
 </nav>
 

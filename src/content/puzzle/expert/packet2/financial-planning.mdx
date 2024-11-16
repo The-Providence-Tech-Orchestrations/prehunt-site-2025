@@ -8,164 +8,30 @@ keep_going: {}
 round: 2
 difficulty: "expert"
 ---
+import Grid from "@/components/financial-planning/Grid.astro"
 
 # Financial Planning
 
-{" "}
 
-<div class="italic">
+<div class="italic py-4" style={{fontFamily: "DM Mono, sans-serif"}}>
   Sidecar tries to understand how the bank schedules its workers, but the system is hopelessly
   convoluted. He infiltrates the back office and finds telltale evidence of the bank's unorthodox
   method for determining shifts.
 </div>
 
-{" "}
-
-<table class="w-full table-fixed border-solid border-black">
-  <tr class="border-t-black">
-    <td class="border-2 border-black">1</td>
-    <td class="border-2 border-black">2</td>
-    <td class="border-2 border-black">3</td>
-    <td class="border-2 border-black" class="bg-black"></td>
-    <td class="border-2 border-black" class="bg-black"></td>
-    <td class="border-2 border-black">4</td>
-    <td class="border-2 border-black">5</td>
-    <td class="border-2 border-black">6</td>
-    <td class="border-2 border-black">7</td>
-    <td class="border-2 border-black">8</td>
-    <td class="border-2 border-black">9</td>
-  </tr>
-  <tr>
-    <td class="border-2 border-black">10</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black">11</td>
-    <td class="border-2 border-black" class="bg-black"></td>
-    <td class="border-2 border-black">12</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-  </tr>
-  <tr>
-    <td class="border-2 border-black">13</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black" class="bg-black"></td>
-    <td class="border-2 border-black">14</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-  </tr>
-  <tr>
-    <td class="border-2 border-black">15</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black">16</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black" class="bg-black"></td>
-    <td class="border-2 border-black" class="bg-black"></td>
-    <td class="border-2 border-black" class="bg-black"></td>
-  </tr>
-  <tr>
-    <td class="border-2 border-black">17</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black" class="bg-black"></td>
-    <td class="border-2 border-black">18</td>
-    <td class="border-2 border-black">19</td>
-    <td class="border-2 border-black">20</td>
-  </tr>
-  <tr>
-    <td class="border-2 border-black">21</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black" class="bg-black"></td>
-    <td class="border-2 border-black">22</td>
-    <td class="border-2 border-black">23</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-  </tr>
-  <tr>
-    <td class="border-2 border-black">24</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black" class="bg-black"></td>
-    <td class="border-2 border-black">25</td>
-    <td class="border-2 border-black">26</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-  </tr>
-  <tr>
-    <td class="border-2 border-black" class="bg-black"></td>
-    <td class="border-2 border-black" class="bg-black"></td>
-    <td class="border-2 border-black" class="bg-black"></td>
-    <td class="border-2 border-black">27</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-  </tr>
-  <tr>
-    <td class="border-2 border-black">28</td>
-    <td class="border-2 border-black">29</td>
-    <td class="border-2 border-black">30</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black" class="bg-black"></td>
-    <td class="border-2 border-black">31</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-  </tr>
-  <tr>
-    <td class="border-2 border-black">32</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black" class="bg-black"></td>
-    <td class="border-2 border-black">33</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-  </tr>
-  <tr>
-    <td class="border-2 border-black">34</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black" class="bg-black"></td>
-    <td class="border-2 border-black" class="bg-black"></td>
-    <td class="border-2 border-black">35</td>
-    <td class="border-2 border-black"></td>
-    <td class="border-2 border-black"></td>
-  </tr>
-</table>
+<Grid board={[
+    ["_", "1"], ["_", "2"], ["_", "3"], ["B", ""], ["B", ""], ["_", "4"], ["_", "5"], ["_", "6"], ["_", "7"], ["_", "8"], ["_", "9"],
+    ["_", "10"], ["_", ""], ["_", ""], ["_", "11"], ["B", ""], ["_", "12"], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""],
+    ["_", "13"], ["_", ""], ["_", ""], ["_", ""], ["B", ""], ["_", "14"], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""],
+    ["_", "15"], ["_", ""], ["_", ""], ["_", ""], ["_", "16"], ["_", ""], ["_", ""], ["_", ""], ["B", ""], ["B", ""], ["B", ""],
+    ["_", "17"], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["B", ""], ["_", "18"], ["_", "19"], ["_", "20"],
+    ["_", "21"], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["B", ""], ["_", "22"], ["_", "23"], ["_", ""], ["_", ""], ["_", ""],
+    ["_", "24"], ["_", ""], ["_", ""], ["B", ""], ["_", "25"], ["_", "26"], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""],
+    ["B", ""], ["B", ""], ["B", ""], ["_", "27"], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""],
+    ["_", "28"], ["_", "29"], ["_", "30"], ["_", ""], ["_", ""], ["_", ""], ["B", ""], ["_", "31"], ["_", ""], ["_", ""], ["_", ""],
+    ["_", "32"], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["B", ""], ["_", "33"], ["_", ""], ["_", ""], ["_", ""],
+    ["_", "34"], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["_", ""], ["B", ""], ["B", ""], ["_", "35"], ["_", ""], ["_", ""],
+]} />
 
 {" "}
 

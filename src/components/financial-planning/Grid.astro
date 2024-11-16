@@ -1,0 +1,27 @@
+---
+const variants = {
+  "": "bg-gray-200",
+  _: "bg-white border border-black",
+  Y: "bg-yellow-200 border border-black",
+  W: "bg-white border border-black",
+  B: "bg-black border border-black",
+} as const;
+
+export interface Props {
+  className?: string;
+  board: [keyof typeof variants, string][]; // first element is variant, second element is string to display
+}
+
+const { board, className } = Astro.props;
+// console.log(board);
+---
+
+<div class="mx-auto grid h-min grid-cols-11 border-2 border-black">
+  {
+    board.map(([variant, letter], index) => (
+      <div class={`grid aspect-square place-items-center ${className} ${variants[variant]}`}>
+        {letter}
+      </div>
+    ))
+  }
+</div>
