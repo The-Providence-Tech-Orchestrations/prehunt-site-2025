@@ -4,6 +4,7 @@ interface PasswordDialogProps {
   children?: React.ReactNode;
   closeModal: () => void;
   message: string;
+  slug: string;
   correctPassword: string;
 }
 
@@ -23,6 +24,7 @@ const PasswordDialog: React.FC<PasswordDialogProps> = ({
   children,
   closeModal,
   message,
+  slug,
   correctPassword,
 }) => {
   const [password, setPassword] = useState("");
@@ -54,7 +56,8 @@ const PasswordDialog: React.FC<PasswordDialogProps> = ({
 
     if (result.isValid) {
       setFeedback(null);
-      localStorage.setItem("casual/building_solution", "BY SWIPING RIGHT");
+      localStorage.setItem(`casual/${slug}_solution`, correctPassword);
+      localStorage.setItem(`expert/${slug}_solution`, correctPassword);
       closeModal();
     } else {
       setFeedback(result.message);
