@@ -7,9 +7,9 @@ import game_box from "@/assets/landing/game-box.png";
 import { HUNT_START_TIME } from "@/lib/utils";
 ---
 
-<h>
+<di>
   <section class="landing-art flex h-screen items-center justify-center p-10 text-[white]">
-    <div class="fixed space-y-1">
+    <div class="fixed flex flex-col justify-center space-y-1">
       <div class="disc-art relative pt-10">
         <ImageRotateHover
           src={cd.src}
@@ -27,9 +27,14 @@ import { HUNT_START_TIME } from "@/lib/utils";
         endText="refresh the page!"
         client:visible
       />
+      <a
+        class="z-[100] py-4 text-center text-3xl blur-[2px]"
+        href="https://drive.google.com/file/d/1yySMY0nkYXhKLaNrj6XVjvr0MU9ODGtc/view"
+        >Kickoff Skit</a
+      >
     </div>
   </section>
   <div class="fixed bottom-10 left-1/2 -translate-x-1/2 transform font-mono">
     <InfoDialog client:visible />
   </div>
-</h>
+</di>
