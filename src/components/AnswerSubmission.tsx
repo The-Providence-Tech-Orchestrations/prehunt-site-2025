@@ -37,6 +37,8 @@ export default function AnswerSubmission({
 }: AnswerSubmissionProps) {
   const [history, setHistory] = useLocalStorage<[string, string][]>(`${slug}_history`, []);
 
+  const solved = localStorage.getItem(`${slug}_solution`) !== `""`;
+
   const onSubmitHandler: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
@@ -54,11 +56,13 @@ export default function AnswerSubmission({
           placeholder="GUESS ANSWER"
           className="border-2 rounded blur-[1px] focus:blur-[0.5px] transition-all duration-300 text-transform: uppercase"
           style={{ textTransform: "uppercase" }}
+          disabled={solved}
         />
 
         <button
           type="submit"
-          className="rounded-xl bg-gray-500 px-4 py-2 text-white font-semibold hover:bg-gray-600 transition"
+          className={`rounded-xl  px-4 py-2 text-white font-semibold  transition duration-100 ${!solved ? "bg-gray-500 hover:bg-gray-600" : "bg-green-100"}`}
+          disabled={solved}
         >
           Submit
         </button>

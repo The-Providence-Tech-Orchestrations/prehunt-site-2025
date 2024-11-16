@@ -1,3 +1,9 @@
+// Configuration (to be set by the site owner)
+const encodedAnswers = ["Y29ycmVjdEFuc3dlcg=="]; // Base64 encoded correct answers
+const keepGoingPhrases = {
+  "a2VlcEdvaW5nMQ==": "WW91J3JlIG9uIHRoZSByaWdodCB0cmFjayE=", // "keepGoing1": "You're on the right track!"
+  "a2VlcEdvaW5nMg==": "QWxtb3N0IHRoZXJlLCBrZWVwIHRyeWluZyE=", // "keepGoing2": "Almost there, keep trying!"
+};
 const rateLimit = { submissions: 3, timeout: 20 };
 
 // Rate limiting variables
@@ -18,7 +24,10 @@ export function checkAnswer(
   const statusDiv = document.getElementById("status");
   let responseMessage = "";
 
-  if (userAnswer == "" || !enabled || localStorage.getItem(`${slug}_solution`)) {
+  console.log(localStorage.getItem(`${slug}_solution`));
+  console.log(localStorage.getItem(`${slug}_solution`) !== "");
+
+  if (userAnswer == "" || !enabled || localStorage.getItem(`${slug}_solution`) !== `""`) {
     return;
   }
 
