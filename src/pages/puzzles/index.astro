@@ -10,3 +10,12 @@ import PacketView from "@/components/react/PacketView";
     <PacketView client:only="react" />
   </div>
 </BaseLayout>
+
+<script is:inline>
+  packet2_link = document.getElementById("packet2_link");
+  packet2_img = document.getElementById("packet2_img");
+  if (!localStorage.getItem("building_solution")) {
+    packet2_link.href = "javascript: void(0)";
+    packet2_img.href = "javascript: void(0)";
+  }
+</script>
