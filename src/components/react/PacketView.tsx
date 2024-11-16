@@ -30,6 +30,12 @@ export default function PacketView() {
     (localStorage.getItem(`expert/${META_2_SLUG}_solution`) !== `""` &&
       localStorage.getItem(`expert/${META_2_SLUG}_solution`));
 
+  const huntSolved =
+    (localStorage.getItem(`casual/supermeta_solution`) !== `""` &&
+      localStorage.getItem(`casual/supermeta_solution`)) ||
+    (localStorage.getItem(`expert/supermeta_solution`) !== `""` &&
+      localStorage.getItem(`expert/supermeta_solution`));
+
   const [showPacket2Modal, setShowPacket2Modal] = useState(false);
   const [showSupermetaModal, setShowSuperMetaModal] = useState(false);
 
@@ -50,7 +56,7 @@ export default function PacketView() {
   const closeModal = (setModal: React.Dispatch<React.SetStateAction<boolean>>) => setModal(false);
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center">
       <div className="flex flex-wrap items-center justify-center gap-10 sm:flex-nowrap sm:space-y-0 space-y-2">
         <div className="flex basis-full justify-center sm:basis-1/2">
           <div className="flex flex-col items-center">
@@ -115,6 +121,13 @@ export default function PacketView() {
           </div>
         </div>
       </div>
+
+      {huntSolved && (
+        <a className="px-4 py-2 bg-gray-500 text-white rounded-[0.3rem]" href="/Conclusion.pdf">
+          Conclusion
+        </a>
+      )}
+
       {showPacket2Modal && (
         <PasswordDialog
           slug="building"
