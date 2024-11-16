@@ -34,10 +34,10 @@ export function checkAnswer(
   userAnswer.replace(/[^a-zA-Z]/g, "");
   const uppercaseAnswer = userAnswer.toUpperCase();
   if (atob(encodedAnswer) === uppercaseAnswer) {
-    responseMessage = "Correct!";
+    responseMessage = "✅";
     localStorage.setItem(`${slug}_solution`, uppercaseAnswer);
   } else if (!responseMessage) {
-    responseMessage = "Nope!";
+    responseMessage = "❌";
   }
   history = [[uppercaseAnswer, responseMessage], ...history];
   // console.log("HISTORY:", history)

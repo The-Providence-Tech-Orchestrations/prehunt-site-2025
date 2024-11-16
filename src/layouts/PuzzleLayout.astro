@@ -36,18 +36,17 @@ for (const [key, value] of Object.entries(keep_going)) {
   <Header title={title} />
   <body class="flex min-h-screen flex-col gap-2">
     <Navbar />
-    <a class="mx-auto rounded-xl bg-gray-500 p-4 text-white" href=`/solutions/${slug}`
-      >View Solutions</a
-    >
+
     <AnswerSubmission
       encoded_answer={encoded_answer}
       encoded_keep_going={encoded_keep_going}
       slug={slug}
       client:only
     />
+    <hr class="-gray-300 my-4 border border-t-2" />
 
     <main class="flex-1">
-      <article class="prose mx-auto mt-8 max-w-3xl">
+      <article class="prose mx-auto mb-8 mt-8 max-w-3xl">
         <slot />
       </article>
     </main>

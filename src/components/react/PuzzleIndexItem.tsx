@@ -3,19 +3,26 @@ import type { CollectionEntry } from "astro:content";
 
 interface PuzzleIndexItemProps {
   puzzle: CollectionEntry<"puzzle">;
+  isMeta: boolean;
 }
 
-function PuzzleIndexItem({ puzzle }: PuzzleIndexItemProps) {
-  // TODO: Match this slug to the one in local storage
-  const [solution, _] = useLocalStorage(puzzle.slug, "");
+function PuzzleIndexItem({ puzzle, isMeta }: PuzzleIndexItemProps) {
+  const solution = localStorage.getItem(`${puzzle.slug}_solution`);
 
   return (
-    <div>
-      <a href={`/puzzles/${puzzle.slug}`} className="font-bold">
-        {puzzle.data.title}
-      </a>
-      {solution && <p>{solution}</p>}
-    </div>
+    <>
+      <div>
+        <span className={`font-bold text-left group-hover:underline`}>
+          {isMeta && <span className="text-grey-900 blur-[0.5px]">META: </span>}
+          {puzzle.data.title}
+        </span>
+      </div>
+      {solution && solution != `""` && (
+        <p className="text-green-700 font-bold font-mono text-right blur-[0.4px] group-hover:underline">
+          {solution}
+        </p>
+      )}
+    </>
   );
 }
 

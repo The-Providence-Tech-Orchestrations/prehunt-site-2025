@@ -1,8 +1,6 @@
 import type { CollectionEntry } from "astro:content";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import type { PuzzleDifficulty, PuzzlePacket } from "./types";
-import type { CollectionEntry } from "astro:content";
 
 import type { PuzzleDifficulty, PuzzlePacket } from "./types";
 

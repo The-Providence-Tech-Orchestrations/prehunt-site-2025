@@ -47,19 +47,49 @@ export default function AnswerSubmission({
 
   return (
     <form onSubmit={onSubmitHandler} className="mx-auto">
-      <h1>Submit Answers for {slug}</h1>
-      <input type="text" id="answerInput" placeholder="Enter your answer" />
-      <button type="submit">submit</button>
-      <div id="status"></div>
-      <div id="log" className="overflow-y-auto max-h-40">
-        <h2>Submission Log</h2>
-        {history.map((submission, i) => (
-          <div key={`submission_${i}`}>
-            <p>Submission: {submission[0]}</p>
-            <p>Result: {submission[1]}</p>
-          </div>
-        ))}
+      <div className="flex gap-4 mt-4">
+        <input
+          type="text"
+          id="answerInput"
+          placeholder="GUESS ANSWER"
+          className="border-2 rounded blur-[1px] focus:blur-[0.5px] transition-all duration-300 text-transform: uppercase"
+          style={{ textTransform: "uppercase" }}
+        />
+
+        <button
+          type="submit"
+          className="rounded-xl bg-gray-500 px-4 py-2 text-white font-semibold hover:bg-gray-600 transition"
+        >
+          Submit
+        </button>
+        <a
+          className="rounded-xl bg-gray-500 px-4 py-2 text-white font-semibold hover:bg-gray-600 transition"
+          href={`/solutions/${slug}`}
+        >
+          View Solution
+        </a>
       </div>
+      <div id="status" className="text-[red] mt-4"></div>
+      {history.length != 0 && (
+        <div
+          id="log"
+          className="overflow-y-auto max-h-40 my-8 border-4 border-gray-300 rounded p-4"
+        >
+          {history.map((submission, i) => (
+            <div
+              key={`submission_${i}`}
+              className="flex justify-between items-center py-2 border-b last:border-b-0 border-gray-200"
+            >
+              <p
+                className={`text-left font-mono ${submission[1] == "✅" ? "text-green-800 font-bold" : "text-gray-800"}`}
+              >
+                {submission[0]}
+              </p>
+              <p className="text-right text-gray-600">{submission[1]}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </form>
   );
 }

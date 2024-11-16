@@ -1,39 +1,12 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ModePicker from "@/components/react/ModePicker";
-import { getCollection } from "astro:content";
-import PuzzleIndex from "@/components/react/PuzzleIndex";
-import dvd1 from "@/assets/puzzles-page/dvd_1.png";
-import dvd2 from "@/assets/puzzles-page/dvd_2.png";
-
-const puzzles = await getCollection("puzzle");
+import PacketView from "@/components/react/PacketView";
 ---
 
 <BaseLayout title="">
   <ModePicker client:only="react" />
   <div class="mx-auto p-4 sm:max-w-5xl">
-    <div class="flex flex-wrap gap-4 sm:flex-nowrap">
-      <div class="basis-full sm:basis-1/2">
-        <!-- HOVER GLOW ---VVV -->
-        <a href="/packet1">
-          <img
-            class="h-72 transition-transform duration-300 hover:scale-105 hover:drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)]"
-            src={dvd1.src}
-            alt="DVD Packet 1"
-          />
-        </a>
-        <a href="/puzzles/packet1">test</a>
-      </div>
-      <div class="basis-full sm:basis-1/2">
-        <a href="/packet2">
-          <img
-            class="h-72 transition-transform duration-300 hover:scale-105 hover:drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)]"
-            src={dvd2.src}
-            alt="DVD Packet 2"
-          />
-        </a>
-        <a href="/puzzles/packet2">test</a>
-      </div>
-    </div>
+    <PacketView client:only="react" />
   </div>
 </BaseLayout>
