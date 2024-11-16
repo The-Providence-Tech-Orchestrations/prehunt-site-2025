@@ -11,10 +11,11 @@ difficulty: "expert"
 
 import Grid from "@/components/sidecar-blueprint/Grid.astro";
 
-# Sidecar&apos;s Blueprint
+import art from "@/assets/art/1.4 Sidecar's Blueprints.png";
 
-<div style={{fontFamily: "DM Mono, sans-serif"}}>
-_Sidecar gives the crew their directions before every job._
+<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+# Sidecar&apos;s Blueprint
+<img class="w-[20rem] border-2 border-gray-300" src={art.src} />
 </div>
 
 <p class="text-center font-serif uppercase text-xl">(Find common words of four or more letters)</p>
