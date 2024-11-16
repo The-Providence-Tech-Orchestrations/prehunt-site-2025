@@ -34,8 +34,11 @@ for (const [key, value] of Object.entries(keep_going)) {
 <script src="lib/checker.js"></script>
 <html lang="en">
   <Header title={title} />
-  <body class="flex min-h-screen flex-col">
+  <body class="flex min-h-screen flex-col gap-2">
     <Navbar />
+    <a class="mx-auto rounded-xl bg-gray-500 p-4 text-white" href=`/solutions/${slug}`
+      >View Solutions</a
+    >
     <AnswerSubmission
       encoded_answer={encoded_answer}
       encoded_keep_going={encoded_keep_going}
