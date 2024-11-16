@@ -13,7 +13,7 @@ interface PuzzleIndexProps {
 
 function PuzzleIndex({ puzzles, packet }: PuzzleIndexProps) {
   const [isExpert, setisExpert] = useLocalStorage("puzzle-mode", true);
-  const difficulty: PuzzleDifficulty = isExpert ? PuzzleDifficulty.Casual : PuzzleDifficulty.Expert;
+  const difficulty: PuzzleDifficulty = isExpert ? PuzzleDifficulty.Expert : PuzzleDifficulty.Casual;
   const puzzlesRendered = packet
     ? filterPuzzleCollection(puzzles, difficulty, packet)
     : filterPuzzleCollection(puzzles, difficulty);

@@ -2,6 +2,7 @@ import { useLocalStorage } from "@uidotdev/usehooks";
 import { useEffect } from "react";
 
 import { checkAnswer } from "@/lib/checker";
+import { cleanInputAnswer } from "@/lib/utils";
 
 interface AnswerSubmissionProps {
   encoded_answer: string;
@@ -21,15 +22,6 @@ const sha256 = async (answer: string) => {
   return hashHex;
 };
 
-const cleanInputAnswer = (answer: string) => {
-  return answer
-    .toLocaleUpperCase()
-    .trim()
-    .split("")
-    .filter((char) => "A" <= char && char <= "Z")
-    .join("");
-};
-
 export default function AnswerSubmission({
   encoded_answer,
   encoded_keep_going,
@@ -37,7 +29,9 @@ export default function AnswerSubmission({
 }: AnswerSubmissionProps) {
   const [history, setHistory] = useLocalStorage<[string, string][]>(`${slug}_history`, []);
 
-  const solved = localStorage.getItem(`${slug}_solution`) !== `""`;
+  const solved =
+    localStorage.getItem(`${slug}_solution`) !== `""` &&
+    localStorage.getItem(`${slug}_solution`) !== null;
 
   const onSubmitHandler: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -61,7 +55,7 @@ export default function AnswerSubmission({
 
         <button
           type="submit"
-          className={`rounded-xl  px-4 py-2 text-white font-semibold  transition duration-100 ${!solved ? "bg-gray-500 hover:bg-gray-600" : "bg-green-100"}`}
+          className={`rounded-xl  px-4 py-2 text-white font-semibold  transition duration-100 ${!solved ? "bg-gray-500 hover:bg-gray-600" : "bg-[#40614c69]"}`}
           disabled={solved}
         >
           Submit

@@ -27,7 +27,12 @@ export function checkAnswer(
   console.log(localStorage.getItem(`${slug}_solution`));
   console.log(localStorage.getItem(`${slug}_solution`) !== "");
 
-  if (userAnswer == "" || !enabled || localStorage.getItem(`${slug}_solution`) !== `""`) {
+  if (
+    userAnswer == "" ||
+    !enabled ||
+    (localStorage.getItem(`${slug}_solution`) !== `""` &&
+      localStorage.getItem(`${slug}_solution`) !== null)
+  ) {
     return;
   }
 

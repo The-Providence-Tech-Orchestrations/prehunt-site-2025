@@ -23,3 +23,12 @@ export function filterPuzzleCollection(
     (puzzle) => puzzle.data.difficulty === difficulty && (!packet || puzzle.data.round === packet),
   );
 }
+
+export const cleanInputAnswer = (answer: string) => {
+  return answer
+    .toLocaleUpperCase()
+    .trim()
+    .split("")
+    .filter((char) => "A" <= char && char <= "Z")
+    .join("");
+};
