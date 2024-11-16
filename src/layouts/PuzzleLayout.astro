@@ -2,21 +2,52 @@
 import Navbar from "@/components/Navbar.astro";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
+import type { MarkdownLayoutProps } from "astro";
+import AnswerSubmission from "@/components/AnswerSubmission";
 
-interface Props {
+type Props = MarkdownLayoutProps<{
   title: string;
-}
+  slug: string;
+  answer: string;
+  keep_going: Record<string, string>;
+}>;
 
-const { title } = Astro.props;
+const { frontmatter } = Astro.props;
+
+// zod parse frontmatter
+
+const { title, slug, answer, keep_going } = frontmatter;
+
+// encode answers and keep goings
+const answer1 = answer.replace(/[^a-zA-Z]/g, "");
+const encoded_answer = btoa(answer1);
+// const encoded_keep_going = Object.entries(keep_going).map(([key, value]) => {
+//   return { [key]: btoa(value) };
+// });
+const encoded_keep_going: Record<string, string> = {};
+for (const [key, value] of Object.entries(keep_going)) {
+  encoded_keep_going[key] = btoa(value);
+}
 ---
 
 <html lang="en">
   <Header title={title} />
-  <body class="flex min-h-screen flex-col">
+  <body class="flex min-h-screen flex-col gap-2">
     <Navbar />
+
+    <AnswerSubmission
+      encoded_answer={encoded_answer}
+      encoded_keep_going={encoded_keep_going}
+      slug={slug}
+      client:only="react"
+    />
+    <hr class="-gray-300 my-4 border border-t-2" />
+
     <main class="flex-1">
-      <article class="prose mx-auto mt-8 max-w-3xl">
-        <slot />
+      <article class="prose mx-auto mb-8 mt-8 max-w-3xl">
+        <div class="px-4">
+          <slot />
+        </div>
       </article>
     </main>
     <Footer />

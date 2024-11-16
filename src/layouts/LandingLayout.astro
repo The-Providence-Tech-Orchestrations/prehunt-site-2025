@@ -1,0 +1,25 @@
+---
+import Navbar from "@/components/Navbar.astro";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import { HUNT_HAS_STARTED } from "@/lib/utils";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+
+---
+
+<html lang="en">
+  <Header title={title} />
+  <body class="flex min-h-screen flex-col bg-black">
+    {HUNT_HAS_STARTED ? <Navbar dark /> : <></>}
+    <main class="flex-1 max-h-[50%]">
+      <slot />
+    </main>
+    <!-- <Footer /> -->
+  </body>
+</html>

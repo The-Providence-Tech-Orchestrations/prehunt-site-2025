@@ -1,5 +1,5 @@
 // src/components/CountdownTimer.tsx
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 interface TimeLeft {
   days: number;
@@ -40,16 +40,22 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate, endText, cl
     return () => clearInterval(timer);
   }, [targetDate]);
 
-  const formatTime = (time: number) => String(time).padStart(2, '0');
+  const formatTime = (time: number) => String(time).padStart(2, "0");
 
   return (
     <div className={className}>
       {timeLeft ? (
-        <p className='font-mono'>
-          {formatTime(timeLeft.days)}:{formatTime(timeLeft.hours)}:{formatTime(timeLeft.minutes)}:{formatTime(timeLeft.seconds)}
+        <p className="font-mono">
+          {formatTime(timeLeft.days)}:{formatTime(timeLeft.hours)}:{formatTime(timeLeft.minutes)}:
+          {formatTime(timeLeft.seconds)}
         </p>
       ) : (
-        <p>{endText}</p>
+        <a
+          href="/puzzles"
+          className="px-4 py-2 font-bold rounded-md transition-all duration-300 ease-in-out hover:border-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.4)] hover:text-[4rem]"
+        >
+          LET'S HEIST!!
+        </a>
       )}
     </div>
   );

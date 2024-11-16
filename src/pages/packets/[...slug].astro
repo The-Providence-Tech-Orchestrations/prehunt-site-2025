@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const packets = await getCollection("packet");
+
+  const packetSlugs = packets.map((packet) => ({
+    params: { slug: packet.slug },
+    props: { packet },
+  }));
+
+  return packetSlugs;
+}
+
+export interface Props {
+  packet: CollectionEntry<"packet">;
+}
+
+const { packet } = Astro.props;
+
+const { Content } = await packet.render();
+---
+
+<Content />

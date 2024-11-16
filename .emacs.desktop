@@ -1,0 +1,115 @@
+;; -*- mode: emacs-lisp; lexical-binding:t; coding: utf-8-emacs; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Sun Nov  3 02:28:35 2024
+;; Desktop file format version 208
+;; Emacs version 29.4
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (26407 9763 850662 0) (desktop . "208") "jeakle@jeakle-mbp" nil nil ((((minibuffer . t) (tty-type . "xterm-256color") (tty . "/dev/tty") (display-type . color) (background-mode . light) (scroll-bar-foreground) (scroll-bar-background) (foreground-color . "unspecified-fg") (background-color . "unspecified-bg") (font . "tty") (height . 56) (width . 196) (modeline . t) (unsplittable) (menu-bar-lines . 1) (tab-bar-lines . 0) (frameset--id . "CF86-AF99-16E9-D24B") (frameset--mini t)) ((min-height . 4) (min-width . 20) (min-height-ignore . 2) (min-width-ignore . 4) (min-height-safe . 1) (min-width-safe . 4) (min-pixel-height . 4) (min-pixel-width . 20) (min-pixel-height-ignore . 2) (min-pixel-width-ignore . 4) (min-pixel-height-safe . 1) (min-pixel-width-safe . 4)) hc (pixel-width . 196) (pixel-height . 55) (total-width . 196) (total-height . 55) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 98) (pixel-height . 55) (total-width . 98) (total-height . 55) (normal-height . 1.0) (normal-width . 0.5) (buffer "index.astro" (selected) (hscroll . 0) (fringes 0 0 nil nil) (margins nil) (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 277) (start . 1)) (prev-buffers ("index.astro" 1 277))) (leaf (last . t) (pixel-width . 98) (pixel-height . 55) (total-width . 98) (total-height . 55) (normal-height . 1.0) (normal-width . 0.5) (buffer "AnswerSubmission.tsx" (selected . t) (hscroll . 0) (fringes 0 0 nil nil) (margins nil) (scroll-bars nil 0 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 1650) (start . 681)) (prev-buffers ("PuzzleLayout.astro" 1 223) ("example-puzzle.mdx" 1 12) ("PuzzleIndexItem.astro" 1 206) ("config.ts" 1 175) ("[...slug].astro" 1 1) ("index.astro" 1 277)))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring '(#("onCl" 0 4 (isearch-case-fold-search nil isearch-regexp-function nil))))
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("~/python/prehunt-site-2025/src/components/AnswerSubmission.tsx" "~/python/prehunt-site-2025/src/layouts/PuzzleLayout.astro" "~/python/prehunt-site-2025/src/content/puzzle/example-puzzle.mdx" "~/python/prehunt-site-2025/src/content/config.ts" "~/python/prehunt-site-2025/src/content/puzzle/example-puzzle.mdx" "~/python/prehunt-site-2025/src/components/PuzzleIndexItem.astro" "~/python/prehunt-site-2025/src/layouts/PuzzleIndexLayout.astro" "~/python/prehunt-site-2025/src/pages/puzzles/[...slug].astro" "~/python/prehunt-site-2025/src/layouts/PuzzleLayout.astro" "~/.emacs" "~/python/prehunt-site-2025/" "~/.emacs" "~/python/prehunt-site-2025/src/pages/puzzles/index.astro"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/Users/jeakle/python/prehunt-site-2025/src/components/AnswerSubmission.tsx"
+  "AnswerSubmission.tsx"
+  'fundamental-mode
+  '(font-lock-mode)
+  1650
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 26407 9722 132745 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/jeakle/python/prehunt-site-2025/src/layouts/PuzzleLayout.astro"
+  "PuzzleLayout.astro"
+  'html-mode
+  '(font-lock-mode multi-web-mode)
+  223
+  '(223 nil)
+  nil
+  nil
+  '((buffer-display-time 26407 9714 555968 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/jeakle/python/prehunt-site-2025/src/content/puzzle/example-puzzle.mdx"
+  "example-puzzle.mdx"
+  'fundamental-mode
+  '(font-lock-mode)
+  12
+  '(5 nil)
+  nil
+  nil
+  '((buffer-display-time 26407 9672 361798 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/jeakle/python/prehunt-site-2025/src/pages/puzzles/index.astro"
+  "index.astro"
+  'html-mode
+  '(font-lock-mode multi-web-mode)
+  277
+  '(369 nil)
+  nil
+  nil
+  '((buffer-display-time 26407 9714 555968 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring (330 277 124 100 274 277 277 277 277))))
+
+(desktop-create-buffer 208
+  "/Users/jeakle/python/prehunt-site-2025/src/components/PuzzleIndexItem.astro"
+  "PuzzleIndexItem.astro"
+  'html-mode
+  '(font-lock-mode multi-web-mode)
+  206
+  '(5 nil)
+  nil
+  nil
+  '((buffer-display-time 26407 8823 519802 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring (5 5 5))))
+
+(desktop-create-buffer 208
+  "/Users/jeakle/python/prehunt-site-2025/src/content/config.ts"
+  "config.ts"
+  'conf-colon-mode
+  '(font-lock-mode)
+  175
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 26407 7659 304590 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/Users/jeakle/python/prehunt-site-2025/src/pages/puzzles/[...slug].astro"
+  "[...slug].astro"
+  'html-mode
+  '(font-lock-mode multi-web-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 26407 5351 965879 0) (buffer-file-coding-system . undecided-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/usr/local/Cellar/emacs/29.4/share/emacs/29.4/lisp/loaddefs.el.gz"
+  "loaddefs.el.gz"
+  'emacs-lisp-mode
+  '(eldoc-mode font-lock-mode)
+  748189
+  '(nil nil)
+  nil
+  nil
+  '((buffer-display-time 26407 3728 466510 0) (buffer-file-coding-system . utf-8-emacs-unix))
+  '((mark-ring nil)))
+
