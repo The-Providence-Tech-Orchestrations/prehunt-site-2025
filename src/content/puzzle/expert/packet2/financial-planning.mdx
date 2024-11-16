@@ -9,8 +9,12 @@ round: 2
 difficulty: "expert"
 ---
 import Grid from "@/components/financial-planning/Grid.astro"
+import art from "@/assets/art/financial-planning-transp.png"
 
-# Financial Planning
+<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+ # Financial Planning
+<img class="w-[20rem] border-2 border-gray-300" src={art.src} />
+</div>
 
 
 <div class="italic py-4" style={{fontFamily: "DM Mono, sans-serif"}}>
