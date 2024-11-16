@@ -19,7 +19,9 @@ const { board, className } = Astro.props;
 <div class="mx-auto grid h-min grid-cols-10 border-2 border-black">
   {
     board.map(([variant, letter], index) => (
-      <div class={`grid aspect-square place-items-center ${className} ${variants[variant]}`}>
+      <div
+        class={`grid aspect-square h-7 w-7 place-items-center ${className} ${variants[variant]}`}
+      >
         {letter}
       </div>
     ))
