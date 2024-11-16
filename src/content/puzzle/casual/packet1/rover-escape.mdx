@@ -8,10 +8,14 @@ keep_going: {}
 round: 1
 difficulty: "casual"
 ---
-
 import Grid from "@/components/puzzles/rover-escape-plans/Grid.astro";
+import art from "@/assets/art/1.3 Rover's escape plan.png"
 
+<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
 # Rover's Escape Plans
+<img class="w-[20rem] border-2 border-gray-300" src={art.src} />
+</div>
+
 
 <div class="grid gap-10" style={{fontFamily: "DM Mono, sans-serif"}}>
 _Rover's done a **bit** of work to logic out getaway routes all across town, and he's ready to take the crew in straight lines from start to finish._
