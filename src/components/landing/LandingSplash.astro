@@ -8,21 +8,28 @@ import { HUNT_START_TIME } from "@/lib/utils";
 ---
 
 <h>
-  <section class="landing-art p-10 flex items-center justify-center h-screen text-[white]">
-    <div class="fixed space-y-1">
+  <section class="landing-art flex h-screen items-center justify-center p-10 text-[white]">
+    <div class="space-y-1">
       <div class="disc-art relative pt-10">
-
-        <ImageRotateHover src={cd.src} className="absolute z-[10] w-[20rem] bottom-[0px] left-[100px] select-none"/>
+        <ImageRotateHover
+          src={cd.src}
+          className="absolute bottom-[0px] left-[100px] z-[10] w-[20rem] select-none"
+        />
         <!-- THIS IMAGE:  -->
         <img
           src={game_box.src}
           class="absolute bottom-[-120px] left-[-50px] z-[0] w-[20rem] select-none blur-[2px]"
         />
       </div>
-      <CountdownTimer targetDate={HUNT_START_TIME} className="sm:text-6xl text-4xl text-center pt-20 z-[100] w-[30rem] blur-[2px]" endText="refresh the page!" client:visible />
+      <CountdownTimer
+        targetDate={HUNT_START_TIME}
+        className="z-[100] w-[30rem] pt-20 text-center text-4xl blur-[2px] sm:text-6xl"
+        endText="refresh the page!"
+        client:visible
+      />
     </div>
   </section>
-  <div class="fixed bottom-10 left-1/2 transform -translate-x-1/2 font-mono">
-    <InfoDialog client:visible />
+  <div class="fixed bottom-10 left-1/2 -translate-x-1/2 transform font-mono">
+    <InfoDrawer client:visible />
   </div>
 </h>
