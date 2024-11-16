@@ -15,8 +15,8 @@ export default function PacketView() {
   const [isExpert, setisExpert] = useLocalStorage("puzzle-mode", true);
   const difficulty: string = isExpert ? PuzzleDifficulty.Expert : PuzzleDifficulty.Casual;
 
-  console.log(localStorage.getItem(`casual/${META_1_SLUG}_solution`));
-  console.log(localStorage.getItem(`casual/${META_1_SLUG}_solution`) !== `""`);
+  // console.log(localStorage.getItem(`casual/${META_1_SLUG}_solution`));
+  // console.log(localStorage.getItem(`casual/${META_1_SLUG}_solution`) !== `""`);
 
   const packet1MetaSolved =
     (localStorage.getItem(`casual/${META_1_SLUG}_solution`) !== `""` &&

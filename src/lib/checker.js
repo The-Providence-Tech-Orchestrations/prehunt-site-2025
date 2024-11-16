@@ -24,8 +24,8 @@ export function checkAnswer(
   const statusDiv = document.getElementById("status");
   let responseMessage = "";
 
-  console.log(localStorage.getItem(`${slug}_solution`));
-  console.log(localStorage.getItem(`${slug}_solution`) !== "");
+  // console.log(localStorage.getItem(`${slug}_solution`));
+  // console.log(localStorage.getItem(`${slug}_solution`) !== "");
 
   if (
     userAnswer == "" ||
