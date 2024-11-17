@@ -2,6 +2,7 @@ import { useLocalStorage } from "@uidotdev/usehooks";
 import { useState } from "react";
 
 import clipboard from "@/assets/puzzles-page/clipboard.png";
+import clipboard_expert from "@/assets/puzzles-page/clipboard_expert.png";
 import dvd1 from "@/assets/puzzles-page/dvd_1.png";
 import dvd2 from "@/assets/puzzles-page/dvd_2.png";
 import { PuzzleDifficulty } from "@/lib/types";
@@ -98,7 +99,7 @@ export default function PacketView() {
               >
                 <img
                   className="h-[18rem] transition-transform duration-300 hover:scale-105 drop-shadow-[0_10px_20px_rgba(64,0,64,0.8)]"
-                  src={clipboard.src}
+                  src={isExpert? clipboard_expert.src : clipboard.src}
                   alt="Supermeta"
                 />
                 {huntSolved && (
