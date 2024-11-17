@@ -58,7 +58,7 @@ export default function PacketView() {
   return (
     <div className="flex flex-col justify-center items-center order-1">
       <div className="flex flex-wrap items-center justify-center gap-10 sm:flex-nowrap sm:space-y-0 space-y-2">
-        <div className="flex basis-full justify-center sm:basis-1/2">
+        <div className="flex basis-full justify-center sm:basis-1/2 relative">
           <div className="flex flex-col items-center">
             <a href={`/puzzles/packet1`}>
               <img
@@ -66,6 +66,14 @@ export default function PacketView() {
                 src={dvd1.src}
                 alt="DVD Packet 1"
               />
+              {packet1MetaSolved && (
+                <div
+                  className="absolute text-opacity-80 inset-0 flex transition duration-300 items-center justify-center text-white text-6xl font-bold pointer-events-none blur-[2px]
+                invert-[.16] sepia-[.64] saturate-[30.18] hue-rotate-[145deg] brightness-[.88] contrast-[.92]"
+                >
+                  ✅
+                </div>
+              )}
             </a>
             <a
               href={`/packets/${difficulty}/packet-1`}
@@ -80,7 +88,7 @@ export default function PacketView() {
 
         {packet1MetaSolved && (
           <div
-            className={`flex justify-center basis-full order-7 sm:order-3 ${!packet2MetaSolved && "blur-[10px]"}`}
+            className={`flex justify-center basis-full order-7 sm:order-3 relative ${!packet2MetaSolved && "blur-[10px]"}`}
           >
             <div className="flex flex-col items-center">
               <a
@@ -93,7 +101,14 @@ export default function PacketView() {
                   src={clipboard.src}
                   alt="Supermeta"
                 />
-                {/* Supermeta */}
+                {huntSolved && (
+                  <div
+                    className="absolute text-opacity-80 inset-0 flex transition duration-300 items-center justify-center text-white text-6xl font-bold pointer-events-none blur-[2px]
+                  invert-[.16] sepia-[.64] saturate-[30.18] hue-rotate-[145deg] brightness-[.88] contrast-[.92]"
+                  >
+                    ✅
+                  </div>
+                )}
               </a>
               <a
                 href={packet2MetaSolved ? `/packets/${difficulty}/supermeta` : "#"}
@@ -111,7 +126,7 @@ export default function PacketView() {
         <hr className="sm:hidden w-full border-t-2 border-gray-300 order-6 sm:order-4" />
 
         <div
-          className={`flex basis-full justify-center sm:basis-1/2 order-5 ${!packet1MetaSolved && "blur-[10px]"}`}
+          className={`flex basis-full justify-center sm:basis-1/2 relative order-5 ${!packet1MetaSolved && "blur-[10px]"}`}
         >
           <div className="flex flex-col items-center">
             <a href={packet1MetaSolved ? `/puzzles/packet2` : "#"} onClick={handlePacket2Click}>
@@ -120,6 +135,14 @@ export default function PacketView() {
                 src={dvd2.src}
                 alt="DVD Packet 2"
               />
+              {packet2MetaSolved && (
+                <div
+                  className="absolute text-opacity-80 inset-0 flex transition duration-300 items-center justify-center text-white text-6xl font-bold pointer-events-none blur-[2px]
+                invert-[.16] sepia-[.64] saturate-[30.18] hue-rotate-[145deg] brightness-[.88] contrast-[.92]"
+                >
+                  ✅
+                </div>
+              )}
             </a>
             <a
               href={packet1MetaSolved ? `/packets/${difficulty}/packet-2` : "#"}
