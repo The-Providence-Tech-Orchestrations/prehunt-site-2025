@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
+import { cleanInputAnswer } from "@/lib/utils";
+
 interface PasswordDialogProps {
   children?: React.ReactNode;
   closeModal: () => void;
@@ -12,6 +14,8 @@ function validatePassword(inputPassword: string, correctPassword: string) {
   if (!inputPassword) {
     return { isValid: false, message: "" };
   }
+
+  // console.log(inputPassword, correctPassword);
 
   if (inputPassword !== correctPassword) {
     return { isValid: false, message: "Incorrect answer. Please try again." };
@@ -52,7 +56,7 @@ const PasswordDialog: React.FC<PasswordDialogProps> = ({
   }, [closeModal]);
 
   const handleSubmit = () => {
-    const result = validatePassword(password, correctPassword);
+    const result = validatePassword(cleanInputAnswer(password), correctPassword);
 
     if (result.isValid) {
       setFeedback(null);
