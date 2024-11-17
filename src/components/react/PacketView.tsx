@@ -123,8 +123,12 @@ export default function PacketView() {
       </div>
 
       {huntSolved && (
-        <a className="px-4 py-2 bg-gray-500 text-white rounded-[0.3rem]" href="/Conclusion.pdf">
-          Conclusion
+        <a
+          className="mt-4 text-xl rounded-xl border-4 border-[#63268a99] px-4 py-2 font-mono font-bold blur-[0.5px] transition-all duration-300 ease-in-out hover:scale-105 hover:border-[#63268aff] hover:drop-shadow-[0_0_10px_rgba(0,0,0,0.3)]
+        px-4 py-2 rounded-[0.3rem]"
+          href="/Conclusion.pdf"
+        >
+          📖 CONCLUSION 📖
         </a>
       )}
 
