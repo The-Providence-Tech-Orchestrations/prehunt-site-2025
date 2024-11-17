@@ -79,14 +79,16 @@ export default function PacketView() {
           <div className={`flex justify-center basis-full ${!packet2MetaSolved && "blur-[10px]"}`}>
             <div className="flex flex-col items-center">
               <a
+                className="px-4 py-2 bg-gray-500 text-white rounded-[0.3rem]"
                 href={packet2MetaSolved ? `/puzzles/${difficulty}/supermeta` : "#"}
                 onClick={handleSupermetaClick}
               >
-                <img
+                {/*<img
                   className="h-[18rem] transition-transform duration-300 hover:scale-105 drop-shadow-[0_10px_20px_rgba(64,0,64,0.8)]"
                   src={clipboard.src}
                   alt="Supermeta"
-                />
+                />*/}
+                Supermeta
               </a>
               <a
                 href={packet2MetaSolved ? `/packets/${difficulty}/supermeta` : "#"}
