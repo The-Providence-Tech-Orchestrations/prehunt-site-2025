@@ -16,11 +16,16 @@ const ModePickDialog = () => {
       <DialogContent className="dark bg-[black]">
         <DialogHeader>
           <DialogTitle className="pt-4">EXPERT AND CASUAL MODES?</DialogTitle>
-          <DialogDescription className="text-white blur-[0.75px]">
+          <DialogDescription className="text-white sm:blur-[0.5px] blur-[0px]">
             <br></br>
-            MIT Mystery Heist has two experiences: EXPERT and CASUAL, offering slight differences to puzzle content and flavor text. Both modes are designed to be solvable by all players, regardless of experience level. 
-            <br></br><br></br>
-            CASUAL mode was made specifically in mind of teams that have never done a puzzle hunt before. Pick whichever you feel most comfortable with, but we expect most teams to be happiest in EXPERT {">"}:{")"}
+            MIT Mystery Heist has two experiences: EXPERT and CASUAL, offering slight differences to
+            puzzle content and flavor text. Both modes are designed to be solvable by all players,
+            regardless of experience level.
+            <br></br>
+            <br></br>
+            CASUAL mode was made specifically in mind of teams that have never done a puzzle hunt
+            before. Pick whichever you feel most comfortable with, but we expect most teams to be
+            happiest in EXPERT {">"}:{")"}
           </DialogDescription>
         </DialogHeader>
       </DialogContent>
