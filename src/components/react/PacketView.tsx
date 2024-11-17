@@ -56,13 +56,13 @@ export default function PacketView() {
   const closeModal = (setModal: React.Dispatch<React.SetStateAction<boolean>>) => setModal(false);
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center order-1">
       <div className="flex flex-wrap items-center justify-center gap-10 sm:flex-nowrap sm:space-y-0 space-y-2">
         <div className="flex basis-full justify-center sm:basis-1/2">
           <div className="flex flex-col items-center">
             <a href={`/puzzles/packet1`}>
               <img
-                className="h-[24rem] transition-transform duration-300 hover:scale-105 hover:drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)]"
+                className="h-[24rem] max-w-max transition-transform duration-300 hover:scale-105 hover:drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)]"
                 src={dvd1.src}
                 alt="DVD Packet 1"
               />
@@ -75,8 +75,13 @@ export default function PacketView() {
             </a>
           </div>
         </div>
+
+        <hr className="sm:hidden w-full border-t-2 border-gray-300 order-2" />
+
         {packet1MetaSolved && (
-          <div className={`flex justify-center basis-full ${!packet2MetaSolved && "blur-[10px]"}`}>
+          <div
+            className={`flex justify-center basis-full order-7 sm:order-3 ${!packet2MetaSolved && "blur-[10px]"}`}
+          >
             <div className="flex flex-col items-center">
               <a
                 className="px-4 py-2 bg-gray-500 text-white rounded-[0.3rem]"
@@ -102,13 +107,16 @@ export default function PacketView() {
             </div>
           </div>
         )}
+
+        <hr className="sm:hidden w-full border-t-2 border-gray-300 order-6 sm:order-4" />
+
         <div
-          className={`flex basis-full justify-center sm:basis-1/2 ${!packet1MetaSolved && "blur-[10px]"}`}
+          className={`flex basis-full justify-center sm:basis-1/2 order-5 ${!packet1MetaSolved && "blur-[10px]"}`}
         >
           <div className="flex flex-col items-center">
             <a href={packet1MetaSolved ? `/puzzles/packet2` : "#"} onClick={handlePacket2Click}>
               <img
-                className="h-[24rem] transition-transform duration-300 hover:scale-105 hover:drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)]"
+                className="h-[24rem] max-w-max  transition-transform duration-300 hover:scale-105 hover:drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)]"
                 src={dvd2.src}
                 alt="DVD Packet 2"
               />
@@ -124,10 +132,12 @@ export default function PacketView() {
         </div>
       </div>
 
+      <hr className="sm:hidden my-4 w-full border-t-4 border-gray-300 order-6" />
+
       {huntSolved && (
         <a
           className="mt-4 text-xl rounded-xl border-4 border-[#63268a99] px-4 py-2 font-mono font-bold blur-[0.5px] transition-all duration-300 ease-in-out hover:scale-105 hover:border-[#63268aff] hover:drop-shadow-[0_0_10px_rgba(0,0,0,0.3)]
-        px-4 py-2 rounded-[0.3rem]"
+        px-4 py-2 rounded-[0.3rem] order-7"
           href="/Conclusion.pdf"
         >
           📖 CONCLUSION 📖
