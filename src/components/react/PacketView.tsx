@@ -98,8 +98,8 @@ export default function PacketView() {
                 onClick={handleSupermetaClick}
               >
                 <img
-                  className="h-[18rem] transition-transform duration-300 hover:scale-105 drop-shadow-[0_10px_20px_rgba(64,0,64,0.8)]"
-                  src={isExpert? clipboard_expert.src : clipboard.src}
+                  className="h-[18rem] max-w-max transition-transform duration-300 hover:scale-105 drop-shadow-[0_10px_20px_rgba(64,0,64,0.8)]"
+                  src={isExpert ? clipboard_expert.src : clipboard.src}
                   alt="Supermeta"
                 />
                 {huntSolved && (
@@ -156,16 +156,17 @@ export default function PacketView() {
         </div>
       </div>
 
-      <hr className="sm:hidden my-4 w-full border-t-4 border-gray-300 order-6" />
-
       {huntSolved && (
-        <a
-          className="mt-4 text-xl rounded-xl border-4 border-[#63268a99] px-4 py-2 font-mono font-bold blur-[0.5px] transition-all duration-300 ease-in-out hover:scale-105 hover:border-[#63268aff] hover:drop-shadow-[0_0_10px_rgba(0,0,0,0.3)]
+        <>
+          <hr className="sm:hidden my-4 w-full border-t-4 border-gray-300 order-6" />
+          <a
+            className="mt-4 text-xl rounded-xl border-4 border-[#63268a99] px-4 py-2 font-mono font-bold blur-[0.5px] transition-all duration-300 ease-in-out hover:scale-105 hover:border-[#63268aff] hover:drop-shadow-[0_0_10px_rgba(0,0,0,0.3)]
         px-4 py-2 rounded-[0.3rem] order-7"
-          href="/Conclusion.pdf"
-        >
-          📖 CONCLUSION 📖
-        </a>
+            href="/Conclusion.pdf"
+          >
+            📖 CONCLUSION 📖
+          </a>
+        </>
       )}
 
       {showPacket2Modal && (

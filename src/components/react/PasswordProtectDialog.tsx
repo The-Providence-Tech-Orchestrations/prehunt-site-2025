@@ -114,10 +114,10 @@ const PasswordDialog: React.FC<PasswordDialogProps> = ({
         {feedback && <p className="text-red-500 text-sm mt-2">{feedback}</p>}
         <div className="mt-4 flex justify-end blur-[0.5px]">
           <button
+            className="rounded-full ml-2 px-4 py-2 text-white border border-zinc-400 transition-all blur-[0.5px] hover:border-zinc-800 blur-[0.75px]"
             onClick={handleSubmit}
-            className="ml-2 px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600"
           >
-            Submit
+            SUBMIT
           </button>
         </div>
         <button
