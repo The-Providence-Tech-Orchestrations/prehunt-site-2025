@@ -5,6 +5,7 @@ import InfoDialog from "@/components/react/InfoDialog";
 import cd from "@/assets/landing/cdspin-bw-slow.gif";
 import game_box from "@/assets/landing/game-box.png";
 import { HUNT_START_TIME } from "@/lib/utils";
+import KickoffDialog from "../react/KickoffDialog";
 ---
 
 <di>
@@ -27,14 +28,17 @@ import { HUNT_START_TIME } from "@/lib/utils";
         endText="refresh the page!"
         client:visible
       />
-      <a
+      <!-- <a
         class="z-[100] py-4 pt-8 text-center text-3xl blur-[2px]"
         href="https://drive.google.com/file/d/1yySMY0nkYXhKLaNrj6XVjvr0MU9ODGtc/view"
         ><span
-          class="rounded border-2 border-gray-700 p-1 transition duration-300 hover:border-gray-400"
-          >KICKOFF SKIT</span
+          class="rounded border-2 border-gray-700 p-1 px-2 transition duration-300 hover:border-gray-400"
+          >KICKOFF</span
         ></a
-      >
+      > -->
+      <div class="z-[100] py-4 pt-8 text-center text-3xl blur-[2px]">
+        <KickoffDialog client:visible />
+      </div>
     </div>
   </section>
   <div class="fixed bottom-10 left-1/2 -translate-x-1/2 transform font-mono">
