@@ -5,16 +5,45 @@ import clipboard from "@/assets/puzzles-page/clipboard.png";
 import clipboard_expert from "@/assets/puzzles-page/clipboard_expert.png";
 import dvd1 from "@/assets/puzzles-page/dvd_1.png";
 import dvd2 from "@/assets/puzzles-page/dvd_2.png";
-import { PuzzleDifficulty } from "@/lib/types";
+import { PacketSlug, PuzzleDifficulty } from "@/lib/types";
 
 import PasswordDialog from "./PasswordProtectDialog";
 
 const META_1_SLUG = "building";
 const META_2_SLUG = "cracking";
 
+const GOOGLE_DRIVE_MIRRORS: Record<PuzzleDifficulty, Record<PacketSlug, string>> = {
+  [PuzzleDifficulty.Casual]: {
+    [PacketSlug.One]:
+      "https://drive.google.com/file/d/1g1gSfzomdHqMBCDUvwjNoGKpBzUqonS1/view?usp=sharing",
+    [PacketSlug.Two]:
+      "https://drive.google.com/file/d/1dMLBgIRphzgbMLMMRjgmoOQxCH9SoL2u/view?usp=drive_link",
+    [PacketSlug.SuperMeta]:
+      "https://drive.google.com/file/d/1f9DpImagwVXS8jaYZJTcbYV4jFDA_Dky/view?usp=drive_link",
+  },
+  [PuzzleDifficulty.Expert]: {
+    [PacketSlug.One]:
+      "https://drive.google.com/file/d/1bm1CLfOKgRxYVssLGd9LvlJtSibzY4i7/view?usp=drive_link",
+    [PacketSlug.Two]:
+      "https://drive.google.com/file/d/1KlTJY-So9vcq3KZw2F7LoAdHHbEDJhe4/view?usp=drive_link",
+    [PacketSlug.SuperMeta]:
+      "https://drive.google.com/file/d/1COw5awVIiYb0SBj2677Sq2gdEwPMtqHh/view?usp=drive_link",
+  },
+};
+
+function generatePDFLink(
+  isMobile: boolean,
+  difficulty: PuzzleDifficulty,
+  slug: PacketSlug,
+): string {
+  return !isMobile ? `/packets/${difficulty}/${slug}` : GOOGLE_DRIVE_MIRRORS[difficulty][slug];
+}
+
 export default function PacketView() {
+  const isMobile = import.meta.env.SSR ? false : window.innerWidth <= 768;
+
   const [isExpert, _setisExpert] = useLocalStorage("puzzle-mode", true);
-  const difficulty: string = isExpert ? PuzzleDifficulty.Expert : PuzzleDifficulty.Casual;
+  const difficulty: PuzzleDifficulty = isExpert ? PuzzleDifficulty.Expert : PuzzleDifficulty.Casual;
 
   // console.log(localStorage.getItem(`casual/${META_1_SLUG}_solution`));
   // console.log(localStorage.getItem(`casual/${META_1_SLUG}_solution`) !== `""`);
@@ -77,7 +106,7 @@ export default function PacketView() {
               )}
             </a>
             <a
-              href={`/packets/${difficulty}/packet-1`}
+              href={generatePDFLink(isMobile, difficulty, PacketSlug.One)}
               className="mt-4 rounded-xl border border-white px-4 py-2 font-mono font-bold blur-[0.5px] transition-all duration-300 ease-in-out hover:border-[#d1d5db] hover:drop-shadow-[0_0_10px_rgba(0,0,0,0.3)]"
             >
               VIEW PDF
@@ -94,7 +123,11 @@ export default function PacketView() {
             <div className="flex flex-col items-center">
               <a
                 className="px-4 py-2 bg-gray-100 text-white rounded-[0.3rem]"
-                href={packet2MetaSolved ? `/puzzles/${difficulty}/supermeta` : "#"}
+                href={
+                  packet2MetaSolved
+                    ? generatePDFLink(isMobile, difficulty, PacketSlug.SuperMeta)
+                    : "#"
+                }
                 onClick={handleSupermetaClick}
               >
                 <img
@@ -112,7 +145,11 @@ export default function PacketView() {
                 )}
               </a>
               <a
-                href={packet2MetaSolved ? `/packets/${difficulty}/supermeta` : "#"}
+                href={
+                  packet2MetaSolved
+                    ? generatePDFLink(isMobile, difficulty, PacketSlug.SuperMeta)
+                    : "#"
+                }
                 onClick={handleSupermetaClick}
                 className="mt-4 rounded-xl border border-white px-4 py-2 font-mono font-bold
             blur-[0.5px] transition-all duration-300 ease-in-out hover:border-[#d1d5db]
@@ -146,7 +183,7 @@ export default function PacketView() {
               )}
             </a>
             <a
-              href={packet1MetaSolved ? `/packets/${difficulty}/packet-2` : "#"}
+              href={packet1MetaSolved ? generatePDFLink(isMobile, difficulty, PacketSlug.Two) : "#"}
               onClick={handlePacket2Click}
               className="mt-4 rounded-xl border border-white px-4 py-2 font-mono font-bold blur-[0.5px] transition-all duration-300 ease-in-out hover:border-[#d1d5db] hover:drop-shadow-[0_0_10px_rgba(0,0,0,0.3)]"
             >
