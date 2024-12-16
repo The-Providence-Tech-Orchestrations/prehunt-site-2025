@@ -125,7 +125,7 @@ export default function PacketView() {
                 className="px-4 py-2 bg-gray-100 text-white rounded-[0.3rem]"
                 href={
                   packet2MetaSolved
-                    ? generatePDFLink(isMobile, difficulty, PacketSlug.SuperMeta)
+                    ? `/puzzles/${difficulty}/supermeta`
                     : "#"
                 }
                 onClick={handleSupermetaClick}
