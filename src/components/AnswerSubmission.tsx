@@ -62,7 +62,7 @@ export default function AnswerSubmission({
           </button>
           <a
             className="rounded-[.3rem] bg-gray-500 px-4 py-2 text-white font-semibold hover:bg-gray-600 transition"
-            href={`/solutions/${slug}`}
+            href={`../../solutions/${slug}`}
           >
             Solution
           </a>

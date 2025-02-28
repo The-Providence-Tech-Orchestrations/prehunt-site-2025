@@ -27,7 +27,7 @@ function PuzzleIndex({ puzzles, packet }: PuzzleIndexProps) {
           return (
             <a
               key={puzzle.slug}
-              href={`/puzzles/${puzzle.slug}`}
+              href={`../puzzles/${puzzle.slug}`}
               className={`flex group justify-between items-center py-4 ${
                 isLastItem ? "font-bold text-gray-800" : ""
               }`}

@@ -36,7 +36,7 @@ function generatePDFLink(
   difficulty: PuzzleDifficulty,
   slug: PacketSlug,
 ): string {
-  return !isMobile ? `/packets/${difficulty}/${slug}` : GOOGLE_DRIVE_MIRRORS[difficulty][slug];
+  return !isMobile ? `packets/${difficulty}/${slug}` : GOOGLE_DRIVE_MIRRORS[difficulty][slug];
 }
 
 export default function PacketView() {
@@ -90,7 +90,7 @@ export default function PacketView() {
       <div className="flex flex-wrap items-center justify-center gap-10 sm:flex-nowrap sm:space-y-0 space-y-2">
         <div className="flex basis-full justify-center sm:basis-1/2 relative">
           <div className="flex flex-col items-center">
-            <a href={`/puzzles/packet1`}>
+            <a href={`puzzles/packet1`}>
               <img
                 className="h-[24rem] max-w-max transition-transform duration-300 hover:scale-105 hover:drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)]"
                 src={dvd1.src}
@@ -125,7 +125,7 @@ export default function PacketView() {
                 className="px-4 py-2 bg-gray-100 text-white rounded-[0.3rem]"
                 href={
                   packet2MetaSolved
-                    ? `/puzzles/${difficulty}/supermeta`
+                    ? `puzzles/${difficulty}/supermeta`
                     : "#"
                 }
                 onClick={handleSupermetaClick}
@@ -167,7 +167,7 @@ export default function PacketView() {
           className={`flex basis-full justify-center sm:basis-1/2 relative order-5 ${!packet1MetaSolved && "blur-[10px]"}`}
         >
           <div className="flex flex-col items-center">
-            <a href={packet1MetaSolved ? `/puzzles/packet2` : "#"} onClick={handlePacket2Click}>
+            <a href={packet1MetaSolved ? `puzzles/packet2` : "#"} onClick={handlePacket2Click}>
               <img
                 className="h-[24rem] max-w-max  transition-transform duration-300 hover:scale-105 hover:drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)]"
                 src={dvd2.src}

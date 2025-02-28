@@ -1,0 +1,7 @@
+---
+const { href, ...rest } = Astro.props;
+const baseHref = `${import.meta.env.BASE_URL}${href.replace(/^\/+/, '')}`;
+---
+<a href={baseHref} {...rest}>
+  <slot />
+</a>  

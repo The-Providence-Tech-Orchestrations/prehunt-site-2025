@@ -8,5 +8,6 @@ import { defineConfig } from "astro/config";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), react(), mdx(), icon(), sitemap()],
-  site: "https://www.mitmysteryheist.com",
+  site: "https://puzzles.mit.edu",
+  base: "/2025/heist/"
 });

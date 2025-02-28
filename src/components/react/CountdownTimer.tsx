@@ -1,5 +1,5 @@
 // src/components/CountdownTimer.tsx
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface TimeLeft {
   days: number;
@@ -51,7 +51,7 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate, endText, cl
         </p>
       ) : (
         <a
-          href="/puzzles"
+          href="puzzles"
           className="px-4 py-2 font-bold rounded-md transition-all duration-300 ease-in-out hover:border-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.4)] hover:text-[4rem]"
         >
           LET'S HEIST!!
