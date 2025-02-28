@@ -12,7 +12,7 @@ interface PuzzleIndexProps {
 }
 
 function PuzzleIndex({ puzzles, packet }: PuzzleIndexProps) {
-  const [isExpert, setisExpert] = useLocalStorage("puzzle-mode", true);
+  const [isExpert, setisExpert] = useLocalStorage("2025_prehunt/puzzle-mode", true);
   const difficulty: PuzzleDifficulty = isExpert ? PuzzleDifficulty.Expert : PuzzleDifficulty.Casual;
   const puzzlesRendered = packet
     ? filterPuzzleCollection(puzzles, difficulty, packet)

@@ -5,7 +5,7 @@ import ResetProgressDialog from "./ResetProgressDialog";
 import StoryDialog from "./StoryDialog";
 
 function ModePicker() {
-  const [isExpert, setisExpert] = useLocalStorage("puzzle-mode", true);
+  const [isExpert, setisExpert] = useLocalStorage("2025_prehunt/puzzle-mode", true);
 
   return (
     <div className="flex flex-wrap justify-center items-center gap-2 py-4 space-x-2">

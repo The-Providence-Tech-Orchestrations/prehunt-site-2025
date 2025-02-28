@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/dialog";
 
 const StoryDialog = () => {
-  const [hasSeenStory, setHasSeenStory] = useLocalStorage("has-seen-story", false);
+  const [hasSeenStory, setHasSeenStory] = useLocalStorage("2025_prehunt/has-seen-story", false);
 
   useEffect(() => {
     if (!hasSeenStory) {

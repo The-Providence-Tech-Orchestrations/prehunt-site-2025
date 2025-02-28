@@ -26,11 +26,11 @@ export default function AnswerSubmission({
   encoded_keep_going,
   slug,
 }: AnswerSubmissionProps) {
-  const [history, setHistory] = useLocalStorage<[string, string][]>(`${slug}_history`, []);
+  const [history, setHistory] = useLocalStorage<[string, string][]>(`2025_prehunt/${slug}_history`, []);
 
   const solved =
-    localStorage.getItem(`${slug}_solution`) !== `""` &&
-    localStorage.getItem(`${slug}_solution`) !== null;
+    localStorage.getItem(`2025_prehunt/${slug}_solution`) !== `""` &&
+    localStorage.getItem(`2025_prehunt/${slug}_solution`) !== null;
 
   const onSubmitHandler: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();

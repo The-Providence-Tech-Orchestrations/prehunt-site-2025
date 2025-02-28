@@ -1,6 +1,6 @@
 ---
 const { puz } = Astro.props;
-const solution = localStorage.getItem(`${puz.slug}_solution`)
+const solution = localStorage.getItem(`2025_prehunt/${puz.slug}_solution`)
 ---
 <div id="puzindex-{name}">
   <a href="{puz.slug}"><b>{puz.title}</b></a>

@@ -24,14 +24,12 @@ export function checkAnswer(
   const statusDiv = document.getElementById("status");
   let responseMessage = "";
 
-  // console.log(localStorage.getItem(`${slug}_solution`));
-  // console.log(localStorage.getItem(`${slug}_solution`) !== "");
 
   if (
     userAnswer == "" ||
     !enabled ||
-    (localStorage.getItem(`${slug}_solution`) !== `""` &&
-      localStorage.getItem(`${slug}_solution`) !== null)
+    (localStorage.getItem(`2025_prehunt/${slug}_solution`) !== `""` &&
+      localStorage.getItem(`2025_prehunt/${slug}_solution`) !== null)
   ) {
     return;
   }
@@ -49,7 +47,7 @@ export function checkAnswer(
   const uppercaseAnswer = userAnswer.toUpperCase();
   if (atob(encodedAnswer) === uppercaseAnswer) {
     responseMessage = "✅";
-    localStorage.setItem(`${slug}_solution`, uppercaseAnswer);
+    localStorage.setItem(`2025_prehunt/${slug}_solution`, uppercaseAnswer);
   } else if (!responseMessage) {
     responseMessage = "❌";
   }

@@ -7,7 +7,7 @@ interface PuzzleIndexItemProps {
 }
 
 function PuzzleIndexItem({ puzzle, isMeta }: PuzzleIndexItemProps) {
-  const solution = localStorage.getItem(`${puzzle.slug}_solution`);
+  const solution = localStorage.getItem(`2025_prehunt/${puzzle.slug}_solution`);
 
   return (
     <>

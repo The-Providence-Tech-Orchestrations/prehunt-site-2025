@@ -60,8 +60,8 @@ const PasswordDialog: React.FC<PasswordDialogProps> = ({
 
     if (result.isValid) {
       setFeedback(null);
-      localStorage.setItem(`casual/${slug}_solution`, correctPassword);
-      localStorage.setItem(`expert/${slug}_solution`, correctPassword);
+      localStorage.setItem(`2025_prehunt/casual/${slug}_solution`, correctPassword);
+      localStorage.setItem(`2025_prehunt/expert/${slug}_solution`, correctPassword);
       closeModal();
     } else {
       setFeedback(result.message);

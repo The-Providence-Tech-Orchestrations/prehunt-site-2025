@@ -42,29 +42,27 @@ function generatePDFLink(
 export default function PacketView() {
   const isMobile = import.meta.env.SSR ? false : window.innerWidth <= 768;
 
-  const [isExpert, _setisExpert] = useLocalStorage("puzzle-mode", true);
+  const [isExpert, _setisExpert] = useLocalStorage("2025_prehunt/puzzle-mode", true);
   const difficulty: PuzzleDifficulty = isExpert ? PuzzleDifficulty.Expert : PuzzleDifficulty.Casual;
 
-  // console.log(localStorage.getItem(`casual/${META_1_SLUG}_solution`));
-  // console.log(localStorage.getItem(`casual/${META_1_SLUG}_solution`) !== `""`);
 
   const packet1MetaSolved =
-    (localStorage.getItem(`casual/${META_1_SLUG}_solution`) !== `""` &&
-      localStorage.getItem(`casual/${META_1_SLUG}_solution`)) ||
-    (localStorage.getItem(`expert/${META_1_SLUG}_solution`) !== `""` &&
-      localStorage.getItem(`expert/${META_1_SLUG}_solution`));
+    (localStorage.getItem(`2025_prehunt/casual/${META_1_SLUG}_solution`) !== `""` &&
+      localStorage.getItem(`2025_prehunt/casual/${META_1_SLUG}_solution`)) ||
+    (localStorage.getItem(`2025_prehunt/expert/${META_1_SLUG}_solution`) !== `""` &&
+      localStorage.getItem(`2025_prehunt/expert/${META_1_SLUG}_solution`));
 
   const packet2MetaSolved =
-    (localStorage.getItem(`casual/${META_2_SLUG}_solution`) !== `""` &&
-      localStorage.getItem(`casual/${META_2_SLUG}_solution`)) ||
-    (localStorage.getItem(`expert/${META_2_SLUG}_solution`) !== `""` &&
-      localStorage.getItem(`expert/${META_2_SLUG}_solution`));
+    (localStorage.getItem(`2025_prehunt/casual/${META_2_SLUG}_solution`) !== `""` &&
+      localStorage.getItem(`2025_prehunt/casual/${META_2_SLUG}_solution`)) ||
+    (localStorage.getItem(`2025_prehunt/expert/${META_2_SLUG}_solution`) !== `""` &&
+      localStorage.getItem(`2025_prehunt/xpert/${META_2_SLUG}_solution`));
 
   const huntSolved =
-    (localStorage.getItem(`casual/supermeta_solution`) !== `""` &&
-      localStorage.getItem(`casual/supermeta_solution`)) ||
-    (localStorage.getItem(`expert/supermeta_solution`) !== `""` &&
-      localStorage.getItem(`expert/supermeta_solution`));
+    (localStorage.getItem(`2025_prehunt/casual/supermeta_solution`) !== `""` &&
+      localStorage.getItem(`2025_prehunt/casual/supermeta_solution`)) ||
+    (localStorage.getItem(`2025_prehunt/expert/supermeta_solution`) !== `""` &&
+      localStorage.getItem(`2025_prehunt/expert/supermeta_solution`));
 
   const [showPacket2Modal, setShowPacket2Modal] = useState(false);
   const [showSupermetaModal, setShowSuperMetaModal] = useState(false);
