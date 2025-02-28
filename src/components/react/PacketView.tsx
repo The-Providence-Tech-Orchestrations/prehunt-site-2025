@@ -45,6 +45,9 @@ export default function PacketView() {
   const [isExpert, _setisExpert] = useLocalStorage("2025_prehunt/puzzle-mode", true);
   const difficulty: PuzzleDifficulty = isExpert ? PuzzleDifficulty.Expert : PuzzleDifficulty.Casual;
 
+  const packet1MetaVisible = true;
+  const packet2MetaVisible = true;
+  const huntFullyVisible = true;
 
   const packet1MetaSolved =
     (localStorage.getItem(`2025_prehunt/casual/${META_1_SLUG}_solution`) !== `""` &&
@@ -68,14 +71,14 @@ export default function PacketView() {
   const [showSupermetaModal, setShowSuperMetaModal] = useState(false);
 
   const handlePacket2Click: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
-    if (!packet1MetaSolved) {
+    if (!packet1MetaVisible) {
       e.preventDefault();
       setShowPacket2Modal(true);
     }
   };
 
   const handleSupermetaClick: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
-    if (!packet2MetaSolved) {
+    if (!packet2MetaVisible) {
       e.preventDefault();
       setShowSuperMetaModal(true);
     }
@@ -94,12 +97,12 @@ export default function PacketView() {
                 src={dvd1.src}
                 alt="DVD Packet 1"
               />
-              {packet1MetaSolved && (
+              {packet1MetaVisible && (
                 <div
                   className="absolute text-opacity-80 inset-0 flex transition duration-300 items-center justify-center text-white text-6xl font-bold pointer-events-none blur-[2px]
                 invert-[.16] sepia-[.64] saturate-[30.18] hue-rotate-[145deg] brightness-[.88] contrast-[.92]"
                 >
-                  ✅
+                  {packet1MetaSolved && "✅" }
                 </div>
               )}
             </a>
@@ -114,15 +117,15 @@ export default function PacketView() {
 
         <hr className="sm:hidden w-full border-t-2 border-gray-300 order-2" />
 
-        {packet1MetaSolved && (
+        {packet1MetaVisible && (
           <div
-            className={`flex justify-center basis-full order-7 sm:order-3 relative ${!packet2MetaSolved && "blur-[10px]"}`}
+            className={`flex justify-center basis-full order-7 sm:order-3 relative ${!packet2MetaVisible && "blur-[10px]"}`}
           >
             <div className="flex flex-col items-center">
               <a
                 className="px-4 py-2 bg-gray-100 text-white rounded-[0.3rem]"
                 href={
-                  packet2MetaSolved
+                  packet2MetaVisible
                     ? `puzzles/${difficulty}/supermeta`
                     : "#"
                 }
@@ -133,18 +136,18 @@ export default function PacketView() {
                   src={isExpert ? clipboard_expert.src : clipboard.src}
                   alt="Supermeta"
                 />
-                {huntSolved && (
+                {huntFullyVisible && (
                   <div
                     className="absolute text-opacity-80 inset-0 flex transition duration-300 items-center justify-center text-white text-6xl font-bold pointer-events-none blur-[2px]
                   invert-[.16] sepia-[.64] saturate-[30.18] hue-rotate-[145deg] brightness-[.88] contrast-[.92]"
                   >
-                    ✅
+                    {huntSolved && "✅" }
                   </div>
                 )}
               </a>
               <a
                 href={
-                  packet2MetaSolved
+                  packet2MetaVisible
                     ? generatePDFLink(isMobile, difficulty, PacketSlug.SuperMeta)
                     : "#"
                 }
@@ -162,26 +165,26 @@ export default function PacketView() {
         <hr className="sm:hidden w-full border-t-2 border-gray-300 order-6 sm:order-4" />
 
         <div
-          className={`flex basis-full justify-center sm:basis-1/2 relative order-5 ${!packet1MetaSolved && "blur-[10px]"}`}
+          className={`flex basis-full justify-center sm:basis-1/2 relative order-5 ${!packet1MetaVisible && "blur-[10px]"}`}
         >
           <div className="flex flex-col items-center">
-            <a href={packet1MetaSolved ? `puzzles/packet2` : "#"} onClick={handlePacket2Click}>
+            <a href={packet1MetaVisible ? `puzzles/packet2` : "#"} onClick={handlePacket2Click}>
               <img
                 className="h-[24rem] max-w-max  transition-transform duration-300 hover:scale-105 hover:drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)]"
                 src={dvd2.src}
                 alt="DVD Packet 2"
               />
-              {packet2MetaSolved && (
+              {packet2MetaVisible && (
                 <div
                   className="absolute text-opacity-80 inset-0 flex transition duration-300 items-center justify-center text-white text-6xl font-bold pointer-events-none blur-[2px]
                 invert-[.16] sepia-[.64] saturate-[30.18] hue-rotate-[145deg] brightness-[.88] contrast-[.92]"
                 >
-                  ✅
+                  {packet2MetaSolved && "✅" }
                 </div>
               )}
             </a>
             <a
-              href={packet1MetaSolved ? generatePDFLink(isMobile, difficulty, PacketSlug.Two) : "#"}
+              href={packet1MetaVisible ? generatePDFLink(isMobile, difficulty, PacketSlug.Two) : "#"}
               onClick={handlePacket2Click}
               className="mt-4 rounded-xl border border-white px-4 py-2 font-mono font-bold blur-[0.5px] transition-all duration-300 ease-in-out hover:border-[#d1d5db] hover:drop-shadow-[0_0_10px_rgba(0,0,0,0.3)]"
             >
@@ -191,13 +194,13 @@ export default function PacketView() {
         </div>
       </div>
 
-      {huntSolved && (
+      {huntFullyVisible && (
         <>
           <hr className="sm:hidden my-4 w-full border-t-4 border-gray-300 order-6" />
           <a
             className="mt-4 text-xl rounded-xl border-4 border-[#63268a99] px-4 py-2 font-mono font-bold blur-[0.5px] transition-all duration-300 ease-in-out hover:scale-105 hover:border-[#63268aff] hover:drop-shadow-[0_0_10px_rgba(0,0,0,0.3)]
         px-4 py-2 rounded-[0.3rem] order-7"
-            href="/Conclusion.pdf"
+            href="/2025/heist/Conclusion.pdf"
           >
             📖 CONCLUSION 📖
           </a>
