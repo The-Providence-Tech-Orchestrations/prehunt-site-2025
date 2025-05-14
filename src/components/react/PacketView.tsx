@@ -1,10 +1,13 @@
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { useState } from "react";
 
+
+
 import clipboard from "@/assets/puzzles-page/clipboard.png";
 import clipboard_expert from "@/assets/puzzles-page/clipboard_expert.png";
 import dvd1 from "@/assets/puzzles-page/dvd_1.png";
 import dvd2 from "@/assets/puzzles-page/dvd_2.png";
+import localStoragePrefix from "@/lib/localStoragePrefix";
 import { PacketSlug, PuzzleDifficulty } from "@/lib/types";
 
 import PasswordDialog from "./PasswordProtectDialog";
@@ -36,35 +39,37 @@ function generatePDFLink(
   difficulty: PuzzleDifficulty,
   slug: PacketSlug,
 ): string {
-  return !isMobile ? `/packets/${difficulty}/${slug}` : GOOGLE_DRIVE_MIRRORS[difficulty][slug];
+  return !isMobile
+    ? `${import.meta.env.BASE_URL}packets/${difficulty}/${slug}`
+    : GOOGLE_DRIVE_MIRRORS[difficulty][slug];
 }
 
 export default function PacketView() {
   const isMobile = import.meta.env.SSR ? false : window.innerWidth <= 768;
 
-  const [isExpert, _setisExpert] = useLocalStorage("puzzle-mode", true);
+  const [isExpert, _setisExpert] = useLocalStorage(`${localStoragePrefix}puzzle-mode`, true);
   const difficulty: PuzzleDifficulty = isExpert ? PuzzleDifficulty.Expert : PuzzleDifficulty.Casual;
 
-  // console.log(localStorage.getItem(`casual/${META_1_SLUG}_solution`));
-  // console.log(localStorage.getItem(`casual/${META_1_SLUG}_solution`) !== `""`);
+  // console.log(localStorage.getItem(`${localStoragePrefix}casual/${META_1_SLUG}_solution`));
+  // console.log(localStorage.getItem(`${localStoragePrefix}casual/${META_1_SLUG}_solution`) !== `""`);
 
   const packet1MetaSolved =
-    (localStorage.getItem(`casual/${META_1_SLUG}_solution`) !== `""` &&
-      localStorage.getItem(`casual/${META_1_SLUG}_solution`)) ||
-    (localStorage.getItem(`expert/${META_1_SLUG}_solution`) !== `""` &&
-      localStorage.getItem(`expert/${META_1_SLUG}_solution`));
+    (localStorage.getItem(`${localStoragePrefix}casual/${META_1_SLUG}_solution`) !== `""` &&
+      localStorage.getItem(`${localStoragePrefix}casual/${META_1_SLUG}_solution`)) ||
+    (localStorage.getItem(`${localStoragePrefix}expert/${META_1_SLUG}_solution`) !== `""` &&
+      localStorage.getItem(`${localStoragePrefix}expert/${META_1_SLUG}_solution`));
 
   const packet2MetaSolved =
-    (localStorage.getItem(`casual/${META_2_SLUG}_solution`) !== `""` &&
-      localStorage.getItem(`casual/${META_2_SLUG}_solution`)) ||
-    (localStorage.getItem(`expert/${META_2_SLUG}_solution`) !== `""` &&
-      localStorage.getItem(`expert/${META_2_SLUG}_solution`));
+    (localStorage.getItem(`${localStoragePrefix}casual/${META_2_SLUG}_solution`) !== `""` &&
+      localStorage.getItem(`${localStoragePrefix}casual/${META_2_SLUG}_solution`)) ||
+    (localStorage.getItem(`${localStoragePrefix}expert/${META_2_SLUG}_solution`) !== `""` &&
+      localStorage.getItem(`${localStoragePrefix}expert/${META_2_SLUG}_solution`));
 
   const huntSolved =
-    (localStorage.getItem(`casual/supermeta_solution`) !== `""` &&
-      localStorage.getItem(`casual/supermeta_solution`)) ||
-    (localStorage.getItem(`expert/supermeta_solution`) !== `""` &&
-      localStorage.getItem(`expert/supermeta_solution`));
+    (localStorage.getItem(`${localStoragePrefix}casual/supermeta_solution`) !== `""` &&
+      localStorage.getItem(`${localStoragePrefix}casual/supermeta_solution`)) ||
+    (localStorage.getItem(`${localStoragePrefix}expert/supermeta_solution`) !== `""` &&
+      localStorage.getItem(`${localStoragePrefix}expert/supermeta_solution`));
 
   const [showPacket2Modal, setShowPacket2Modal] = useState(false);
   const [showSupermetaModal, setShowSuperMetaModal] = useState(false);
@@ -90,7 +95,7 @@ export default function PacketView() {
       <div className="flex flex-wrap items-center justify-center gap-10 sm:flex-nowrap sm:space-y-0 space-y-2">
         <div className="flex basis-full justify-center sm:basis-1/2 relative">
           <div className="flex flex-col items-center">
-            <a href={`/puzzles/packet1`}>
+            <a href={`${import.meta.env.BASE_URL}puzzles/packet1`}>
               <img
                 className="h-[24rem] max-w-max transition-transform duration-300 hover:scale-105 hover:drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)]"
                 src={dvd1.src}
@@ -125,7 +130,7 @@ export default function PacketView() {
                 className="px-4 py-2 bg-gray-100 text-white rounded-[0.3rem]"
                 href={
                   packet2MetaSolved
-                    ? `/puzzles/${difficulty}/supermeta`
+                    ? `${import.meta.env.BASE_URL}puzzles/${difficulty}/supermeta`
                     : "#"
                 }
                 onClick={handleSupermetaClick}
@@ -167,7 +172,10 @@ export default function PacketView() {
           className={`flex basis-full justify-center sm:basis-1/2 relative order-5 ${!packet1MetaSolved && "blur-[10px]"}`}
         >
           <div className="flex flex-col items-center">
-            <a href={packet1MetaSolved ? `/puzzles/packet2` : "#"} onClick={handlePacket2Click}>
+            <a
+              href={packet1MetaSolved ? `${import.meta.env.BASE_URL}puzzles/packet2` : "#"}
+              onClick={handlePacket2Click}
+            >
               <img
                 className="h-[24rem] max-w-max  transition-transform duration-300 hover:scale-105 hover:drop-shadow-[0_4px_15px_rgba(0,0,0,0.6)]"
                 src={dvd2.src}
@@ -199,7 +207,7 @@ export default function PacketView() {
           <a
             className="mt-4 text-xl rounded-xl border-4 border-[#63268a99] px-4 py-2 font-mono font-bold blur-[0.5px] transition-all duration-300 ease-in-out hover:scale-105 hover:border-[#63268aff] hover:drop-shadow-[0_0_10px_rgba(0,0,0,0.3)]
         px-4 py-2 rounded-[0.3rem] order-7"
-            href="/Conclusion.pdf"
+            href={`${import.meta.env.BASE_URL}Conclusion.pdf`}
           >
             📖 CONCLUSION 📖
           </a>

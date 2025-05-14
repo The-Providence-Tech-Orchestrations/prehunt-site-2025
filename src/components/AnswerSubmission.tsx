@@ -1,6 +1,9 @@
 import { useLocalStorage } from "@uidotdev/usehooks";
 
+
+
 import { checkAnswer } from "@/lib/checker";
+import localStoragePrefix from "@/lib/localStoragePrefix";
 import { cleanInputAnswer } from "@/lib/utils";
 
 interface AnswerSubmissionProps {
@@ -26,11 +29,14 @@ export default function AnswerSubmission({
   encoded_keep_going,
   slug,
 }: AnswerSubmissionProps) {
-  const [history, setHistory] = useLocalStorage<[string, string][]>(`${slug}_history`, []);
+  const [history, setHistory] = useLocalStorage<[string, string][]>(
+    `${localStoragePrefix}${slug}_history`,
+    [],
+  );
 
   const solved =
-    localStorage.getItem(`${slug}_solution`) !== `""` &&
-    localStorage.getItem(`${slug}_solution`) !== null;
+    localStorage.getItem(`${localStoragePrefix}${slug}_solution`) !== `""` &&
+    localStorage.getItem(`${localStoragePrefix}${slug}_solution`) !== null;
 
   const onSubmitHandler: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -62,7 +68,7 @@ export default function AnswerSubmission({
           </button>
           <a
             className="rounded-[.3rem] bg-gray-500 px-4 py-2 text-white font-semibold hover:bg-gray-600 transition"
-            href={`/solutions/${slug}`}
+            href={`${import.meta.env.BASE_URL}solutions/${slug}`}
           >
             Solution
           </a>

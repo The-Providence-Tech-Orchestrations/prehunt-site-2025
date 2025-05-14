@@ -1,3 +1,5 @@
+import { ARCHIVE_MODE } from "astro:env/client";
+
 import {
   Dialog,
   DialogContent,
@@ -6,10 +8,22 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import localStoragePrefix from "@/lib/localStoragePrefix";
 
 const resetProgress = () => {
   console.log("clearing site progress!!!");
-  localStorage.clear();
+  if (ARCHIVE_MODE) {
+    // Only reset keys with the localStoragePrefix
+    const keysToClear = Object.keys(localStorage).filter((key) =>
+      key.startsWith(localStoragePrefix),
+    );
+    keysToClear.forEach((key) => {
+      localStorage.removeItem(key);
+    });
+  } else {
+    // On the mitmysteryheist.com site, we can just nuke all local storage
+    localStorage.clear();
+  }
   window.location.reload();
 };
 

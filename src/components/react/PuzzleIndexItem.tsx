@@ -1,13 +1,17 @@
 import { useLocalStorage } from "@uidotdev/usehooks";
 import type { CollectionEntry } from "astro:content";
 
+
+
+import localStoragePrefix from "@/lib/localStoragePrefix";
+
 interface PuzzleIndexItemProps {
   puzzle: CollectionEntry<"puzzle">;
   isMeta: boolean;
 }
 
 function PuzzleIndexItem({ puzzle, isMeta }: PuzzleIndexItemProps) {
-  const solution = localStorage.getItem(`${puzzle.slug}_solution`);
+  const solution = localStorage.getItem(`${localStoragePrefix}${puzzle.slug}_solution`);
 
   return (
     <>

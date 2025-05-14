@@ -1,6 +1,9 @@
 import { useLocalStorage } from "@uidotdev/usehooks";
 import type { CollectionEntry } from "astro:content";
 
+
+
+import localStoragePrefix from "@/lib/localStoragePrefix";
 import { PuzzleDifficulty, type PuzzlePacket } from "@/lib/types";
 import { filterPuzzleCollection } from "@/lib/utils";
 
@@ -12,7 +15,7 @@ interface PuzzleIndexProps {
 }
 
 function PuzzleIndex({ puzzles, packet }: PuzzleIndexProps) {
-  const [isExpert, setisExpert] = useLocalStorage("puzzle-mode", true);
+  const [isExpert, setisExpert] = useLocalStorage(`${localStoragePrefix}puzzle-mode`, true);
   const difficulty: PuzzleDifficulty = isExpert ? PuzzleDifficulty.Expert : PuzzleDifficulty.Casual;
   const puzzlesRendered = packet
     ? filterPuzzleCollection(puzzles, difficulty, packet)
@@ -27,7 +30,7 @@ function PuzzleIndex({ puzzles, packet }: PuzzleIndexProps) {
           return (
             <a
               key={puzzle.slug}
-              href={`/puzzles/${puzzle.slug}`}
+              href={`${import.meta.env.BASE_URL}puzzles/${puzzle.slug}`}
               className={`flex group justify-between items-center py-4 ${
                 isLastItem ? "font-bold text-gray-800" : ""
               }`}

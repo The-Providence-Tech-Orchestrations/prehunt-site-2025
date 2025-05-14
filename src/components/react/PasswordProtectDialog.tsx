@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
+import localStoragePrefix from "@/lib/localStoragePrefix";
 import { cleanInputAnswer } from "@/lib/utils";
 
 interface PasswordDialogProps {
@@ -60,8 +61,8 @@ const PasswordDialog: React.FC<PasswordDialogProps> = ({
 
     if (result.isValid) {
       setFeedback(null);
-      localStorage.setItem(`casual/${slug}_solution`, correctPassword);
-      localStorage.setItem(`expert/${slug}_solution`, correctPassword);
+      localStorage.setItem(`${localStoragePrefix}casual/${slug}_solution`, correctPassword);
+      localStorage.setItem(`${localStoragePrefix}expert/${slug}_solution`, correctPassword);
       closeModal();
     } else {
       setFeedback(result.message);

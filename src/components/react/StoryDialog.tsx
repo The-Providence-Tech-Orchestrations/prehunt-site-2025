@@ -1,18 +1,17 @@
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { useEffect } from "react";
 
+
+
 import art from "@/assets/art/story.png";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import localStoragePrefix from "@/lib/localStoragePrefix";
 
 const StoryDialog = () => {
-  const [hasSeenStory, setHasSeenStory] = useLocalStorage("has-seen-story", false);
+  const [hasSeenStory, setHasSeenStory] = useLocalStorage(
+    `${localStoragePrefix}has-seen-story`,
+    false,
+  );
 
   useEffect(() => {
     if (!hasSeenStory) {
