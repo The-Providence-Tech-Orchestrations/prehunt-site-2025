@@ -1,9 +1,11 @@
 ---
+import localStoragePrefix from "@/lib/localStoragePrefix";
+
 const { puz } = Astro.props;
-const solution = localStorage.getItem(`${puz.slug}_solution`)
+const solution = localStorage.getItem(`${localStoragePrefix}${puz.slug}_solution`)
 ---
 <div id="puzindex-{name}">
-  <a href="{puz.slug}"><b>{puz.title}</b></a>
+  <a href={`${import.meta.env.BASE_URL}{puz.slug}`}><b>{puz.title}</b></a>
   { solution && <p><br>{solution}</p> }
 </div>
   

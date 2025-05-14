@@ -1,3 +1,6 @@
+import localStoragePrefix from "@/lib/localStoragePrefix";
+
+
 // Configuration (to be set by the site owner)
 const encodedAnswers = ["Y29ycmVjdEFuc3dlcg=="]; // Base64 encoded correct answers
 const keepGoingPhrases = {
@@ -24,14 +27,14 @@ export function checkAnswer(
   const statusDiv = document.getElementById("status");
   let responseMessage = "";
 
-  // console.log(localStorage.getItem(`${slug}_solution`));
-  // console.log(localStorage.getItem(`${slug}_solution`) !== "");
+  // console.log(localStorage.getItem(`${localStoragePrefix}${slug}_solution`));
+  // console.log(localStorage.getItem(`${localStoragePrefix}${slug}_solution`) !== "");
 
   if (
     userAnswer == "" ||
     !enabled ||
-    (localStorage.getItem(`${slug}_solution`) !== `""` &&
-      localStorage.getItem(`${slug}_solution`) !== null)
+    (localStorage.getItem(`${localStoragePrefix}${slug}_solution`) !== `""` &&
+      localStorage.getItem(`${localStoragePrefix}${slug}_solution`) !== null)
   ) {
     return;
   }
@@ -49,7 +52,7 @@ export function checkAnswer(
   const uppercaseAnswer = userAnswer.toUpperCase();
   if (atob(encodedAnswer) === uppercaseAnswer) {
     responseMessage = "✅";
-    localStorage.setItem(`${slug}_solution`, uppercaseAnswer);
+    localStorage.setItem(`${localStoragePrefix}${slug}_solution`, uppercaseAnswer);
   } else if (!responseMessage) {
     responseMessage = "❌";
   }
